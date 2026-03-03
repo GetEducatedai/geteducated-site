@@ -8,6 +8,7 @@ import Masterclass from "@/components/Masterclass";
 import Courses from "@/components/Courses";
 import Pricing from "@/components/Pricing";
 import FoundingMember from "@/components/FoundingMember";
+import InstructorBio from "@/components/InstructorBio";
 import Events from "@/components/Events";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
@@ -26,6 +27,7 @@ export default function Home() {
         <Courses />
         <Pricing />
         <FoundingMember />
+        <InstructorBio />
         <Events />
       </main>
       <Footer />

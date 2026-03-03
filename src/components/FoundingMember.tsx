@@ -34,7 +34,7 @@ export default function FoundingMember() {
                 Be a Founding Member.
                 <br />
                 Free for the first{" "}
-                <span className="font-serif italic font-normal">50.</span>
+                <span className="font-serif italic font-bold">50.</span>
               </h2>
               <p className="text-muted max-w-lg mx-auto mb-8 font-body">
                 Get lifetime access at no cost. Shape the community from day

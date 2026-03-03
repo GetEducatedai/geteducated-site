@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
   display: "swap",
   variable: "--font-serif",
   style: ["normal", "italic"],
-  weight: ["400", "700"],
+  weight: ["400", "700", "900"],
 });
 
 const inter = Inter({

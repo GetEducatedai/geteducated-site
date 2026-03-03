@@ -19,7 +19,7 @@ export default function Masterclass() {
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-ink">
                 The AI Consultant
                 <br />
-                <span className="font-serif italic font-normal">Blueprint</span>
+                <span className="font-serif italic font-bold">Blueprint</span>
               </h2>
               <p className="text-muted max-w-lg mb-8 leading-relaxed font-body">
                 Learn how to position yourself as an AI consultant, land your
@@ -28,8 +28,11 @@ export default function Masterclass() {
               </p>
               <a
                 href="#masterclass"
-                className="inline-flex bg-ink text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-ink text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition btn-press"
               >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                </svg>
                 Watch Free Masterclass
               </a>
             </div>

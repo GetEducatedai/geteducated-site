@@ -7,18 +7,20 @@ const events = [
   {
     name: "RE:WIRE",
     location: "Dubai, UAE",
+    date: "May 2026",
     description:
-      "A 3-day immersive for AI builders. Workshops, networking, and live building sessions in one of the world's most ambitious cities.",
+      "The quarterly event at the convergence of AI, entrepreneurship, wellness tech and community building.",
     tag: "Flagship",
-    gradient: "from-violet/20 via-blue/10 to-purple/5",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&auto=format",
   },
   {
     name: "Visionaries in Paradise",
     location: "Tulum, Mexico",
+    date: "Coming Soon",
     description:
       "Where AI meets intention. A retreat for creators who want to build businesses that fund the life they actually want.",
     tag: "Retreat",
-    gradient: "from-purple/20 via-violet/10 to-blue/5",
+    image: "https://images.unsplash.com/photo-1501446529957-6226bd447c46?w=800&q=80&auto=format",
   },
 ];
 
@@ -29,7 +31,7 @@ export default function Events() {
         <AnimateIn>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
             Real events.{" "}
-            <span className="font-serif italic font-normal">Real people.</span>
+            <span className="font-serif italic font-bold">Real people.</span>
           </h2>
           <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
             We don&apos;t just exist online. We build together IRL.
@@ -43,28 +45,39 @@ export default function Events() {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-[20px] border border-border bg-white overflow-hidden hover:shadow-lg hover:shadow-violet/5 hover:-translate-y-1 transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="group relative rounded-[20px] overflow-hidden hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
-              <div
-                className={`h-48 bg-gradient-to-br ${event.gradient} flex items-center justify-center`}
-              >
-                <span className="font-display text-4xl font-extrabold tracking-tight text-ink">
-                  {event.name}
-                </span>
-              </div>
-              <div className="p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold text-violet bg-violet/10 px-3 py-1 rounded-full font-display">
-                    {event.tag}
-                  </span>
-                  <span className="text-sm text-muted font-body">
+              {/* Full bleed background image */}
+              <div className="relative h-80 sm:h-96">
+                <img
+                  src={event.image}
+                  alt={`${event.name} - ${event.location}`}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+
+                {/* Content overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs font-semibold text-white bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full font-display">
+                      {event.tag}
+                    </span>
+                    <span className="text-xs font-semibold text-white/80 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full font-display">
+                      {event.date}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-1 tracking-tight">
+                    {event.name}
+                  </h3>
+                  <p className="text-white/70 text-sm font-body mb-2">
                     {event.location}
-                  </span>
+                  </p>
+                  <p className="text-white/60 text-sm leading-relaxed font-body max-w-sm">
+                    {event.description}
+                  </p>
                 </div>
-                <p className="text-muted text-sm leading-relaxed font-body">
-                  {event.description}
-                </p>
               </div>
             </motion.div>
           ))}

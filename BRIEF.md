@@ -154,3 +154,140 @@ Add "Services" link to main nav pointing to `/services`
 ### Typography Effects
 - Hero headline: each word or line has a slight blur-to-clear reveal
 - Key italic Playfair words: subtle underline draw animation on load
+
+---
+
+## COMPREHENSIVE UI/UX UPGRADE (Priority — Make It Sexy)
+
+### Navigation
+- Glassmorphism blur on scroll: `backdrop-blur-md bg-white/70 border-b border-white/20` when scrolled
+- Add LOGIN button (ghost/outline pill) → links to https://go.geteducated.ai
+- Nav: Logo | Home | Academy | Services | Community | Events | About | [LOGIN] [Join Community]
+
+### Hero Section
+- Change "150+ members" → "50+ Founding Members" or "Join as a Founding Beta Member"
+- "Join Community" CTA → smooth scroll to #pricing section (NOT to go.geteducated.ai)
+- "Watch Free Masterclass" → add ▶ play icon before text
+- More personality, color, soul
+
+### AI Tools Marquee
+- Replace pill text components with ACTUAL LOGOS (SVG/PNG) for each tool
+- Get logo images from: Midjourney, Runway, Claude (Anthropic), ElevenLabs, HeyGen, Gamma.app, OpenAI, Notion, ChatGPT
+- Use brand colors where possible
+
+### Bento Grid (being rebuilt by separate agent)
+- Already in progress — rich visual cards per earlier spec
+
+### Why We're Different
+- Redesign completely — less table, more visual
+- Inspiration: the reference Framer screenshots sent earlier
+- Use visual contrast cards or split layout instead of comparison table
+
+### How It Works — 3 Steps (Interactive Timeline)
+- New heading: "Your Journey Starts Here" or "The GetEducated Path"
+- Make it an interactive visual timeline/journey, not just numbered cards
+- Step 01 — LEARN: "Master the AI tools shaping the world" — show AI tool logos floating
+- Step 02 — BUILD: "Build in public. Share your progress with a community that gets it." — show a post/thread UI mockup
+- Step 03 — LEAD: "Lead with confidence in the AI era." — show metrics/growth visual
+- Add connecting animated line between steps
+- Hover: each step expands or glows
+
+### Courses Section
+- Only AI Consultant Blueprint is LIVE and FREE — mark it clearly with a "FREE" badge
+- All other courses: placeholder gradient covers with "Coming Soon" badge overlay
+- Remove specific course names if not decided yet — use generic: "AI Tools Mastery", "Creator's Playbook", "AI for Business"
+
+### Pricing Cards
+- MUCH more modern and futuristic
+- Add gradient accent borders or glow effects
+- Add floating icons or visual elements in the cards
+- More personality — Members vs Architects should feel like different worlds
+- Add a "Most Popular" badge to Architects
+- "Join Community" on pricing CTA → takes them to https://go.geteducated.ai to checkout
+
+### Events Section
+- RE:WIRE: use Dubai skyline photo (dramatic, golden hour — find on Unsplash)
+  - Description: "The quarterly event at the convergence of AI, entrepreneurship, wellness tech and community building."
+  - Next event: May 2026, Dubai
+- Visionaries in Paradise: use Tulum/exotic aerial beach photo
+- Both cards should be more immersive — full bleed photo with overlay text
+
+### Font Cohesion
+- Reduce the size gap between Playfair Display italic and Plus Jakarta Sans headers
+- Make Playfair italic feel MORE BOLD — use font-weight 700 or 900 if available, or increase size slightly
+- The two fonts should feel harmonious not jarring
+
+### Testimonials (when added)
+- Round circular profile photos for each testimonial author
+- Clean card design with quote mark graphic
+
+### Animations & Feel
+- Full smooth scroll behavior (CSS: scroll-behavior: smooth + scroll-snap where appropriate)
+- Add more micro-animations: hover states, button press effects, card lifts
+- Stagger ALL section entrance animations
+- Add subtle parallax to hero and event cards
+- The site should feel FLUID and ALIVE like a premium Framer site
+
+### Social Links (Footer — FINAL)
+- Email: info@geteducated.ai
+- Instagram: https://instagram.com/geteducated.ai
+- X/Twitter: https://twitter.com/geteducated_ai
+- TikTok: https://tiktok.com/geteducated.ai
+- YouTube: https://www.youtube.com/@GetEducatedAI
+- LinkedIn: https://www.linkedin.com/company/geteducated-ai
+- Facebook: https://www.facebook.com/geteducatedai
+- Add TikTok icon to footer (was missing)
+
+---
+
+## ABOUT / INSTRUCTOR SECTION — Final Copy
+
+**Section header:** "Meet Your Instructor"
+
+**Name:** Emaan Faith
+**Title:** Founder of GetEducated.ai
+
+**Bio copy (use verbatim):**
+"I'm Emaan Faith, the Founder of GetEducated.ai. I went from self-taught artist to building a thriving AI consulting business without learning how to code.
+
+I didn't start as a technical person. I'm a visual artist known for painting murals around the world. No computer science degree. No coding bootcamp. Just curiosity and a business mindset.
+
+When I discovered AI, I saw what most people miss: The biggest opportunity isn't building the technology. It's bridging the gap between businesses that need it and the solutions that exist.
+
+So I started consulting. Not as a developer, but as a strategic guide. Someone who could understand business problems, recommend the right AI solutions, and partner with technical experts for delivery.
+
+Now I'm teaching non-technical people like you to do what I did: Turn AI knowledge into high-income AI consulting, without becoming a developer.
+
+This masterclass is the complete system I wish I had when I started. No hype. No theory. Just the real playbook. And I'm giving it to you for free."
+
+**Photo:** /images/emaan-headshot.jpg (already saved)
+
+**Design:** Split layout — photo left (or right), bio text on other side. Warm, personal, confident. Add subtle floating credential badges or stats (10 years as artist, murals worldwide, self-taught).
+
+---
+
+## SOCIAL PROOF WIDGET (Hero Section)
+
+Replace the "150+ members" badge with this exact style:
+- 3 overlapping circular avatar photos (diverse faces, real-looking)
+- Bold number: "50+" 
+- 5 gold star icons (⭐⭐⭐⭐⭐)
+- Two lines of text: "Multiple continents" + "One shared vision"
+- Compact pill/widget style, positioned near hero CTAs
+- Keep it small and elegant — not a big section, just a trust signal
+
+---
+
+## CONTACT PAGE (src/app/contact/page.tsx)
+
+Route: /contact
+Nav: Add "Contact" link to Nav
+
+Design: Clean, minimal, editorial feel matching site aesthetic
+- Section header: "Let's Talk" or "Get In Touch"
+- Subheading: "Whether you're ready to build or just curious — we'd love to hear from you."
+- Contact form fields: Name, Email, Subject (dropdown: General Inquiry / AI Consulting / Partnership / Events / Press), Message
+- Form submission: mailto:info@geteducated.ai (or Formspree/Resend integration)
+- Direct email CTA: "Prefer email? Reach us at info@geteducated.ai"
+- Social links strip at bottom (same icons as footer)
+- Also add mailto:info@geteducated.ai to footer "Contact" link
