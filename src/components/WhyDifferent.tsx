@@ -14,25 +14,26 @@ const rows = [
 
 export default function WhyDifferent() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
-            Why we&apos;re <span className="text-brand-jade">different</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
+            Why we&apos;re{" "}
+            <span className="font-serif italic font-normal">different</span>
           </h2>
-          <p className="text-brand-cream/50 text-center max-w-xl mx-auto mb-16">
+          <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
             Traditional education wasn&apos;t built for this era. We were.
           </p>
         </AnimateIn>
 
-        <div className="rounded-2xl border border-white/[0.06] overflow-hidden">
+        <div className="rounded-[20px] border border-border overflow-hidden bg-white shadow-sm">
           {/* Header */}
-          <div className="grid grid-cols-3 bg-white/[0.03]">
-            <div className="p-5 text-sm font-medium text-brand-cream/40" />
-            <div className="p-5 text-sm font-medium text-brand-cream/40 text-center">
+          <div className="grid grid-cols-3 bg-cream">
+            <div className="p-5 text-sm font-medium text-muted font-display" />
+            <div className="p-5 text-sm font-medium text-muted text-center font-display">
               Traditional Education
             </div>
-            <div className="p-5 text-sm font-medium text-brand-jade text-center">
+            <div className="p-5 text-sm font-bold text-ink text-center font-display">
               GetEducated.ai
             </div>
           </div>
@@ -45,13 +46,15 @@ export default function WhyDifferent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="grid grid-cols-3 border-t border-white/[0.06]"
+              className="grid grid-cols-3 border-t border-border"
             >
-              <div className="p-5 text-sm font-semibold">{row.label}</div>
-              <div className="p-5 text-sm text-brand-cream/40 text-center">
+              <div className="p-5 text-sm font-semibold text-ink font-display">
+                {row.label}
+              </div>
+              <div className="p-5 text-sm text-muted text-center font-body">
                 {row.trad}
               </div>
-              <div className="p-5 text-sm text-brand-jade text-center font-medium">
+              <div className="p-5 text-sm text-ink text-center font-semibold font-display">
                 {row.ge}
               </div>
             </motion.div>

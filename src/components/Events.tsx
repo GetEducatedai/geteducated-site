@@ -10,7 +10,7 @@ const events = [
     description:
       "A 3-day immersive for AI builders. Workshops, networking, and live building sessions in one of the world's most ambitious cities.",
     tag: "Flagship",
-    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+    gradient: "from-violet/20 via-blue/10 to-purple/5",
   },
   {
     name: "Visionaries in Paradise",
@@ -18,19 +18,20 @@ const events = [
     description:
       "Where AI meets intention. A retreat for creators who want to build businesses that fund the life they actually want.",
     tag: "Retreat",
-    gradient: "from-brand-jade/20 via-teal-500/10 to-transparent",
+    gradient: "from-purple/20 via-violet/10 to-blue/5",
   },
 ];
 
 export default function Events() {
   return (
-    <section id="events" className="py-24 px-6">
+    <section id="events" className="py-24 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
-            Real events. <span className="text-brand-jade">Real people.</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
+            Real events.{" "}
+            <span className="font-serif italic font-normal">Real people.</span>
           </h2>
-          <p className="text-brand-cream/50 text-center max-w-xl mx-auto mb-16">
+          <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
             We don&apos;t just exist online. We build together IRL.
           </p>
         </AnimateIn>
@@ -43,25 +44,25 @@ export default function Events() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
+              className="group relative rounded-[20px] border border-border bg-white overflow-hidden hover:shadow-lg hover:shadow-violet/5 hover:-translate-y-1 transition-all duration-300"
             >
               <div
                 className={`h-48 bg-gradient-to-br ${event.gradient} flex items-center justify-center`}
               >
-                <span className="text-4xl font-bold tracking-tight">
+                <span className="font-display text-4xl font-extrabold tracking-tight text-ink">
                   {event.name}
                 </span>
               </div>
               <div className="p-8">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold text-brand-jade bg-brand-jade/10 px-3 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-violet bg-violet/10 px-3 py-1 rounded-full font-display">
                     {event.tag}
                   </span>
-                  <span className="text-sm text-brand-cream/40">
+                  <span className="text-sm text-muted font-body">
                     {event.location}
                   </span>
                 </div>
-                <p className="text-brand-cream/50 text-sm leading-relaxed">
+                <p className="text-muted text-sm leading-relaxed font-body">
                   {event.description}
                 </p>
               </div>

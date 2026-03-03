@@ -74,15 +74,16 @@ const cards = [
 
 export default function BentoGrid() {
   return (
-    <section className="py-24 px-6">
+    <section id="community" className="py-24 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
             Everything you need.
             <br />
-            <span className="text-brand-jade">Nothing you don&apos;t.</span>
+            Nothing you{" "}
+            <span className="font-serif italic font-normal">don&apos;t.</span>
           </h2>
-          <p className="text-brand-cream/50 text-center max-w-xl mx-auto mb-16">
+          <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
             Six pillars. One ecosystem. Built for people who want to stop
             consuming and start creating.
           </p>
@@ -96,13 +97,15 @@ export default function BentoGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className={`group relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 hover:bg-white/[0.06] hover:border-brand-jade/30 transition-all duration-300 ${card.span}`}
+              className={`group relative bg-white border border-border rounded-[20px] p-8 hover:shadow-lg hover:shadow-violet/5 hover:-translate-y-1 transition-all duration-300 ${card.span}`}
             >
-              <div className="w-10 h-10 rounded-xl bg-brand-jade/10 flex items-center justify-center text-brand-jade mb-5 group-hover:bg-brand-jade/20 transition">
+              <div className="w-10 h-10 rounded-xl bg-cream flex items-center justify-center text-violet mb-5 group-hover:bg-violet/10 transition">
                 {card.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-              <p className="text-brand-cream/50 text-sm leading-relaxed">
+              <h3 className="font-display text-xl font-bold mb-2 text-ink">
+                {card.title}
+              </h3>
+              <p className="text-muted text-sm leading-relaxed font-body">
                 {card.description}
               </p>
             </motion.div>

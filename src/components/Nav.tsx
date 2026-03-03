@@ -4,20 +4,21 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
+  { label: "Home", href: "#" },
   { label: "Academy", href: "#courses" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Community", href: "#community" },
   { label: "Events", href: "#events" },
-  { label: "Masterclass", href: "#masterclass" },
+  { label: "About", href: "#about" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-md border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          Get<span className="text-brand-jade">Educated</span>.ai
+        <a href="#" className="font-display text-xl font-extrabold tracking-tight text-ink">
+          GetEducated.ai
         </a>
 
         {/* Desktop */}
@@ -26,7 +27,7 @@ export default function Nav() {
             <a
               key={l.label}
               href={l.href}
-              className="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
+              className="text-sm text-muted hover:text-ink transition-colors font-body"
             >
               {l.label}
             </a>
@@ -35,7 +36,7 @@ export default function Nav() {
             href="https://go.geteducated.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-jade text-brand-black text-sm font-semibold px-5 py-2.5 rounded-full hover:brightness-110 transition"
+            className="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display"
           >
             Join Community
           </a>
@@ -48,13 +49,13 @@ export default function Nav() {
           aria-label="Toggle menu"
         >
           <span
-            className={`w-5 h-0.5 bg-brand-cream transition-transform ${open ? "rotate-45 translate-y-2" : ""}`}
+            className={`w-5 h-0.5 bg-ink transition-transform ${open ? "rotate-45 translate-y-2" : ""}`}
           />
           <span
-            className={`w-5 h-0.5 bg-brand-cream transition-opacity ${open ? "opacity-0" : ""}`}
+            className={`w-5 h-0.5 bg-ink transition-opacity ${open ? "opacity-0" : ""}`}
           />
           <span
-            className={`w-5 h-0.5 bg-brand-cream transition-transform ${open ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`w-5 h-0.5 bg-ink transition-transform ${open ? "-rotate-45 -translate-y-2" : ""}`}
           />
         </button>
       </div>
@@ -66,7 +67,7 @@ export default function Nav() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-brand-black border-t border-white/5 overflow-hidden"
+            className="md:hidden bg-cream border-t border-border/60 overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {links.map((l) => (
@@ -74,7 +75,7 @@ export default function Nav() {
                   key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-brand-cream/70 hover:text-brand-cream transition-colors"
+                  className="text-muted hover:text-ink transition-colors font-body"
                 >
                   {l.label}
                 </a>
@@ -83,7 +84,7 @@ export default function Nav() {
                 href="https://go.geteducated.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-brand-jade text-brand-black font-semibold px-5 py-2.5 rounded-full text-center hover:brightness-110 transition mt-2"
+                className="bg-ink text-white font-semibold px-5 py-2.5 rounded-full text-center hover:opacity-90 transition mt-2 font-display"
               >
                 Join Community
               </a>

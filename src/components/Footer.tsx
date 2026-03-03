@@ -3,22 +3,14 @@
 import { useState } from "react";
 
 const navLinks = [
+  { label: "Home", href: "#" },
   { label: "Academy", href: "#courses" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Community", href: "#community" },
   { label: "Events", href: "#events" },
-  { label: "Masterclass", href: "#masterclass" },
+  { label: "About", href: "#about" },
 ];
 
 const socialLinks = [
-  {
-    label: "Twitter",
-    href: "#",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
   {
     label: "Instagram",
     href: "#",
@@ -34,6 +26,15 @@ const socialLinks = [
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Twitter",
+    href: "#",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
   },
@@ -61,15 +62,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/[0.06] pt-16 pb-8 px-6">
+    <footer id="about" className="border-t border-border pt-16 pb-8 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href="#" className="text-2xl font-bold tracking-tight">
-              Get<span className="text-brand-jade">Educated</span>.ai
+            <a href="#" className="font-display text-2xl font-extrabold tracking-tight text-ink">
+              GetEducated.ai
             </a>
-            <p className="text-brand-cream/40 text-sm mt-4 max-w-sm leading-relaxed">
+            <p className="text-muted text-sm mt-4 max-w-sm leading-relaxed font-body">
               The anti-university for AI creators. Stop consuming. Start
               building. Own your future.
             </p>
@@ -77,13 +78,13 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Navigate</h4>
+            <h4 className="text-sm font-semibold mb-4 text-ink font-display">Navigate</h4>
             <ul className="space-y-2">
               {navLinks.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-sm text-brand-cream/40 hover:text-brand-cream transition-colors"
+                    className="text-sm text-muted hover:text-ink transition-colors font-body"
                   >
                     {l.label}
                   </a>
@@ -94,9 +95,9 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Stay in the loop</h4>
+            <h4 className="text-sm font-semibold mb-4 text-ink font-display">Stay in the loop</h4>
             {subscribed ? (
-              <p className="text-sm text-brand-jade">You&apos;re in. Watch your inbox.</p>
+              <p className="text-sm text-violet font-display font-semibold">You&apos;re in. Watch your inbox.</p>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-3">
                 <input
@@ -105,11 +106,11 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-brand-cream placeholder:text-brand-cream/30 focus:outline-none focus:border-brand-jade/50 transition"
+                  className="w-full bg-white border border-border rounded-full px-4 py-2.5 text-sm text-ink placeholder:text-muted/50 focus:outline-none focus:border-violet/50 transition font-body"
                 />
                 <button
                   type="submit"
-                  className="w-full bg-brand-jade text-brand-black text-sm font-semibold py-2 rounded-lg hover:brightness-110 transition"
+                  className="w-full bg-ink text-white text-sm font-semibold py-2.5 rounded-full hover:opacity-90 transition font-display"
                 >
                   Subscribe
                 </button>
@@ -119,8 +120,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.06]">
-          <p className="text-xs text-brand-cream/30">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border">
+          <p className="text-xs text-muted font-body">
             &copy; {new Date().getFullYear()} GetEducated.ai. All rights
             reserved.
           </p>
@@ -130,7 +131,7 @@ export default function Footer() {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="text-brand-cream/30 hover:text-brand-jade transition-colors"
+                className="text-muted hover:text-ink transition-colors"
               >
                 {s.icon}
               </a>

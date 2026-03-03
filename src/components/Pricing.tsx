@@ -40,39 +40,40 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 px-6">
+    <section id="pricing" className="py-24 px-6 bg-cream">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
-            Simple <span className="text-brand-jade">pricing</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
+            Simple{" "}
+            <span className="font-serif italic font-normal">pricing</span>
           </h2>
-          <p className="text-brand-cream/50 text-center max-w-xl mx-auto mb-10">
+          <p className="text-muted text-center max-w-xl mx-auto mb-10 font-body">
             No hidden fees. No upsells. Cancel anytime.
           </p>
 
           {/* Toggle */}
           <div className="flex items-center justify-center gap-4 mb-16">
             <span
-              className={`text-sm ${!annual ? "text-brand-cream" : "text-brand-cream/40"}`}
+              className={`text-sm font-display ${!annual ? "text-ink font-semibold" : "text-muted"}`}
             >
               Quarterly
             </span>
             <button
               onClick={() => setAnnual(!annual)}
-              className="relative w-14 h-7 bg-white/10 rounded-full transition-colors"
+              className="relative w-14 h-7 bg-border rounded-full transition-colors"
               aria-label="Toggle billing period"
             >
               <motion.div
-                className="absolute top-1 w-5 h-5 bg-brand-jade rounded-full"
+                className="absolute top-1 w-5 h-5 bg-ink rounded-full"
                 animate={{ left: annual ? "calc(100% - 24px)" : "4px" }}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
               />
             </button>
             <span
-              className={`text-sm ${annual ? "text-brand-cream" : "text-brand-cream/40"}`}
+              className={`text-sm font-display ${annual ? "text-ink font-semibold" : "text-muted"}`}
             >
               Annual{" "}
-              <span className="text-brand-jade text-xs font-semibold">
+              <span className="text-violet text-xs font-semibold">
                 Save 20%
               </span>
             </span>
@@ -91,19 +92,21 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl border p-8 sm:p-10 ${
+                className={`relative rounded-[20px] border p-8 sm:p-10 bg-white ${
                   plan.popular
-                    ? "border-brand-jade/40 bg-brand-jade/5"
-                    : "border-white/[0.06] bg-white/[0.02]"
+                    ? "border-ink shadow-lg"
+                    : "border-border"
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-8 bg-brand-jade text-brand-black text-xs font-bold px-4 py-1 rounded-full">
+                  <span className="absolute -top-3 left-8 bg-ink text-white text-xs font-bold px-4 py-1 rounded-full font-display">
                     Most Popular
                   </span>
                 )}
-                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
-                <p className="text-brand-cream/50 text-sm mb-6">
+                <h3 className="font-display text-2xl font-bold mb-1 text-ink">
+                  {plan.name}
+                </h3>
+                <p className="text-muted text-sm mb-6 font-body">
                   {plan.description}
                 </p>
                 <div className="flex items-baseline gap-1 mb-8">
@@ -111,17 +114,17 @@ export default function Pricing() {
                     key={price}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-5xl font-bold"
+                    className="font-display text-5xl font-extrabold text-ink"
                   >
                     ${price}
                   </motion.span>
-                  <span className="text-brand-cream/40 text-sm">/mo</span>
+                  <span className="text-muted text-sm font-body">/mo</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-center gap-3 text-sm">
                       <svg
-                        className="w-4 h-4 text-brand-jade flex-shrink-0"
+                        className="w-4 h-4 text-ink flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -133,7 +136,7 @@ export default function Pricing() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-brand-cream/70">{f}</span>
+                      <span className="text-muted font-body">{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -141,10 +144,10 @@ export default function Pricing() {
                   href="https://go.geteducated.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block text-center font-semibold px-6 py-3.5 rounded-full transition hover:scale-[1.02] active:scale-[0.98] ${
+                  className={`block text-center font-display font-semibold px-6 py-3.5 rounded-full transition hover:scale-[1.02] active:scale-[0.98] ${
                     plan.popular
-                      ? "bg-brand-jade text-brand-black hover:brightness-110"
-                      : "border border-white/20 text-brand-cream hover:bg-white/5"
+                      ? "bg-ink text-white hover:opacity-90"
+                      : "border border-ink/20 text-ink hover:bg-ink/5"
                   }`}
                 >
                   {plan.cta}
@@ -155,9 +158,14 @@ export default function Pricing() {
         </div>
 
         <AnimateIn>
-          <p className="text-center text-brand-cream/30 text-sm mt-8">
-            7-day money-back guarantee. No questions asked.
-          </p>
+          <div className="flex justify-center mt-8">
+            <div className="inline-flex items-center gap-2 bg-white border border-border rounded-full px-4 py-2 text-sm text-muted shadow-sm font-body">
+              <svg className="w-4 h-4 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+              7-day money-back guarantee. No questions asked.
+            </div>
+          </div>
         </AnimateIn>
       </div>
     </section>

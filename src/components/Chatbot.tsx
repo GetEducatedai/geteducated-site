@@ -68,10 +68,10 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Floating button */}
+      {/* Floating button — black circle */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-jade text-brand-black rounded-full shadow-lg shadow-brand-jade/20 flex items-center justify-center hover:brightness-110 transition hover:scale-105 active:scale-95"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-ink text-white rounded-full shadow-lg shadow-ink/20 flex items-center justify-center hover:opacity-90 transition hover:scale-105 active:scale-95"
         aria-label="Open chat"
       >
         {open ? (
@@ -86,7 +86,7 @@ export default function Chatbot() {
         )}
       </button>
 
-      {/* Chat modal */}
+      {/* Chat modal — clean white */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -94,17 +94,17 @@ export default function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-brand-black border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-white border border-border rounded-[20px] shadow-2xl overflow-hidden flex flex-col"
             style={{ height: "480px" }}
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/[0.06] flex items-center gap-3">
-              <div className="w-8 h-8 bg-brand-jade/20 rounded-full flex items-center justify-center">
-                <span className="text-brand-jade text-sm font-bold">G</span>
+            <div className="p-4 border-b border-border flex items-center gap-3">
+              <div className="w-8 h-8 bg-cream rounded-full flex items-center justify-center">
+                <span className="text-ink text-sm font-bold font-display">G</span>
               </div>
               <div>
-                <p className="text-sm font-semibold">GetEducated.ai</p>
-                <p className="text-xs text-brand-cream/40">Ask us anything</p>
+                <p className="text-sm font-semibold text-ink font-display">GetEducated.ai</p>
+                <p className="text-xs text-muted font-body">Ask us anything</p>
               </div>
             </div>
 
@@ -116,10 +116,10 @@ export default function Chatbot() {
                   className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed font-body ${
                       msg.role === "user"
-                        ? "bg-brand-jade text-brand-black rounded-br-md"
-                        : "bg-white/[0.06] text-brand-cream/80 rounded-bl-md"
+                        ? "bg-ink text-white rounded-br-md"
+                        : "bg-cream text-ink rounded-bl-md"
                     }`}
                   >
                     {msg.text}
@@ -129,18 +129,18 @@ export default function Chatbot() {
             </div>
 
             {/* Input */}
-            <form onSubmit={send} className="p-3 border-t border-white/[0.06]">
+            <form onSubmit={send} className="p-3 border-t border-border">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask a question..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-brand-cream placeholder:text-brand-cream/30 focus:outline-none focus:border-brand-jade/50 transition"
+                  className="flex-1 bg-cream border border-border rounded-xl px-4 py-2.5 text-sm text-ink placeholder:text-muted/50 focus:outline-none focus:border-violet/50 transition font-body"
                 />
                 <button
                   type="submit"
-                  className="bg-brand-jade text-brand-black w-10 h-10 rounded-xl flex items-center justify-center hover:brightness-110 transition flex-shrink-0"
+                  className="bg-ink text-white w-10 h-10 rounded-xl flex items-center justify-center hover:opacity-90 transition flex-shrink-0"
                   aria-label="Send message"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

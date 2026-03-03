@@ -26,13 +26,14 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4">
-            Three steps. <span className="text-brand-jade">No BS.</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
+            Three steps.{" "}
+            <span className="font-serif italic font-normal">No BS.</span>
           </h2>
-          <p className="text-brand-cream/50 text-center max-w-xl mx-auto mb-16">
+          <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
             We stripped out everything that doesn&apos;t lead to results.
           </p>
         </AnimateIn>
@@ -45,17 +46,22 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative"
+              className="relative bg-white rounded-[20px] border border-border p-8 shadow-sm"
             >
-              <span className="text-7xl font-bold text-brand-jade/10">
+              {/* Gradient blob accent */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[radial-gradient(circle,_#7C3AED_0%,_#3B82F6_50%,_transparent_70%)] opacity-15 blur-2xl pointer-events-none" />
+
+              <span className="font-display text-6xl font-extrabold text-cream">
                 {step.num}
               </span>
-              <h3 className="text-2xl font-bold -mt-4 mb-3">{step.title}</h3>
-              <p className="text-brand-cream/50 text-sm leading-relaxed">
+              <h3 className="font-display text-2xl font-bold -mt-2 mb-3 text-ink">
+                {step.title}
+              </h3>
+              <p className="text-muted text-sm leading-relaxed font-body">
                 {step.description}
               </p>
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-10 -right-4 w-8 text-brand-jade/30">
+                <div className="hidden md:block absolute top-12 -right-4 w-8 text-border">
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
