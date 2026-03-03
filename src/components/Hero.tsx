@@ -11,11 +11,11 @@ const avatars = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-cream">
-      {/* Sophisticated dark blobs — deep navy + slate, no purple/pink */}
-      <div className="gradient-blob w-[600px] h-[600px] bg-[radial-gradient(circle,_#0F2044_0%,_#1E3A5F_40%,_transparent_70%)] top-[-5%] right-[-10%] opacity-20 animate-blob-float" />
-      <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#0C1B33_0%,_#162944_50%,_transparent_70%)] bottom-[10%] right-[5%] opacity-15 animate-blob-float-delay" />
-      <div className="gradient-blob w-[350px] h-[350px] bg-[radial-gradient(circle,_#1A1A2E_0%,_#0F2044_50%,_transparent_70%)] top-[25%] left-[-8%] opacity-12 animate-blob-pulse" />
+    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-[#080808]">
+      {/* Taskade-style warm cinematic orbs — amber, coral, forest green */}
+      <div className="gradient-blob w-[700px] h-[700px] bg-[radial-gradient(circle,_#B45309_0%,_#92400E_40%,_transparent_70%)] top-[-10%] left-[-5%] opacity-40 animate-blob-float" />
+      <div className="gradient-blob w-[600px] h-[600px] bg-[radial-gradient(circle,_#991B1B_0%,_#7F1D1D_40%,_transparent_70%)] bottom-[-5%] right-[-10%] opacity-35 animate-blob-float-delay" />
+      <div className="gradient-blob w-[500px] h-[500px] bg-[radial-gradient(circle,_#065F46_0%,_#064E3B_40%,_transparent_70%)] top-[30%] right-[10%] opacity-30 animate-blob-pulse" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Social Proof Widget — real headshots */}
@@ -23,7 +23,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-border rounded-full px-5 py-2.5 mb-8 shadow-sm"
+          className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2.5 mb-8 shadow-sm"
         >
           {/* Stacked real photo avatars */}
           <div className="flex -space-x-2">
@@ -36,7 +36,7 @@ export default function Hero() {
               />
             ))}
           </div>
-          <span className="font-display font-extrabold text-ink text-lg">50+</span>
+          <span className="font-display font-extrabold text-white text-lg">50+</span>
           {/* 5 gold stars */}
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
@@ -45,14 +45,14 @@ export default function Hero() {
               </svg>
             ))}
           </div>
-          <div className="text-xs text-muted font-body leading-tight hidden sm:block">
-            <div className="font-semibold text-ink">Multiple continents</div>
+          <div className="text-xs text-white/50 font-body leading-tight hidden sm:block">
+            <div className="font-semibold text-white">Multiple continents</div>
             <div>One shared vision</div>
           </div>
         </motion.div>
 
         <motion.h1
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] mb-6 text-ink"
+          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] mb-6 text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
@@ -66,7 +66,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-lg sm:text-xl text-muted max-w-2xl mx-auto mb-10 font-body"
+          className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 font-body"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -89,7 +89,7 @@ export default function Hero() {
           </a>
           <a
             href="/masterclass"
-            className="inline-flex items-center justify-center gap-2 border border-ink/20 text-ink font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-ink/5 transition btn-press"
+            className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/10 transition btn-press"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
@@ -109,7 +109,7 @@ export default function Hero() {
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           >
-            <svg className="w-6 h-6 mx-auto text-muted/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <svg className="w-6 h-6 mx-auto text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </motion.div>
