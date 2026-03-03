@@ -36,7 +36,7 @@ export default function Nav() {
             href="https://go.geteducated.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-white/20 text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-white/10 transition font-display"
+            className="border border-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/10 transition font-display"
           >
             Login
           </a>
@@ -44,7 +44,7 @@ export default function Nav() {
             href="/#pricing"
             className="bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
           >
-            Join Community
+            Join Us
           </a>
         </div>
 
@@ -93,7 +93,7 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
                 className="bg-white text-ink font-semibold px-5 py-2.5 rounded-full text-center hover:opacity-90 transition mt-1 font-display"
               >
-                Join Community
+                Join Us
               </a>
             </div>
           </motion.div>
