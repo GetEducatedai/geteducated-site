@@ -93,9 +93,7 @@ export default function InstructorBio() {
               <p>
                 Now I&apos;m teaching non-technical people like you to do what I did: Turn AI knowledge into high-income AI consulting, without becoming a developer.
               </p>
-              <p className="font-semibold text-ink">
-                This masterclass is the complete system I wish I had when I started. No hype. No theory. Just the real playbook. And I&apos;m giving it to you for free.
-              </p>
+
             </div>
           </motion.div>
         </div>
