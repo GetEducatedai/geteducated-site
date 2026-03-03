@@ -20,7 +20,7 @@ const events = [
     description:
       "Where AI meets intention. A retreat for creators who want to build businesses that fund the life they actually want.",
     tag: "Retreat",
-    image: "https://images.unsplash.com/photo-1501446529957-6226bd447c46?w=800&q=80&auto=format",
+    image: "https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=800&q=80&auto=format",
   },
 ];
 

@@ -24,7 +24,7 @@ const faq: Record<string, string> = {
   events:
     "We host RE:WIRE in Dubai and Visionaries in Paradise in Tulum. Plus regular virtual events for all members.",
   community:
-    "A private network of 150+ AI builders, creators, and entrepreneurs. Weekly calls, collabs, and real connections.",
+    "A curated network of AI builders, creators, and entrepreneurs. Weekly calls, collabs, and real connections.",
 };
 
 function findAnswer(input: string): string {
