@@ -54,7 +54,7 @@ export default function Nav() {
             Login
           </a>
           <a
-            href="#pricing"
+            href="/#pricing"
             className="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
           >
             Join Community
@@ -108,7 +108,7 @@ export default function Nav() {
                 Login
               </a>
               <a
-                href="#pricing"
+                href="/#pricing"
                 onClick={() => setOpen(false)}
                 className="bg-ink text-white font-semibold px-5 py-2.5 rounded-full text-center hover:opacity-90 transition mt-1 font-display"
               >
