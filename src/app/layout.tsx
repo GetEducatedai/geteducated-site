@@ -1,26 +1,20 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display, Inter } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const playfair = Playfair_Display({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-serif",
   style: ["normal", "italic"],
-  weight: ["400", "700", "900"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-body",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -43,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${playfair.variable} ${inter.variable}`}
+      className={`${instrumentSans.variable} ${instrumentSerif.variable}`}
     >
-      <body className="font-body antialiased bg-cream text-ink overflow-x-hidden">
+      <body className="font-display antialiased bg-cream text-ink overflow-x-hidden">
         {children}
       </body>
     </html>

@@ -12,10 +12,10 @@ const avatars = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-[#080808]">
-      {/* Taskade palette — warm amber/orange + deep indigo/purple */}
-      <div className="gradient-blob w-[750px] h-[750px] bg-[radial-gradient(circle,_#C2410C_0%,_#D97706_35%,_transparent_70%)] top-[-15%] left-[10%] opacity-50 animate-blob-float" />
-      <div className="gradient-blob w-[650px] h-[650px] bg-[radial-gradient(circle,_#4338CA_0%,_#5B21B6_40%,_transparent_70%)] bottom-[-10%] left-[-5%] opacity-45 animate-blob-float-delay" />
-      <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#7C2D12_0%,_#C2410C_50%,_transparent_70%)] top-[20%] right-[-5%] opacity-25 animate-blob-pulse" />
+      {/* Brand palette: warm amber + deep red + deep indigo-purple — NO green */}
+      <div className="gradient-blob w-[750px] h-[750px] bg-[radial-gradient(circle,_#D97706_0%,_#B45309_35%,_transparent_70%)] top-[-15%] left-[5%] opacity-55 animate-blob-float" />
+      <div className="gradient-blob w-[650px] h-[650px] bg-[radial-gradient(circle,_#5B21B6_0%,_#4338CA_40%,_transparent_70%)] bottom-[-10%] left-[-5%] opacity-50 animate-blob-float-delay" />
+      <div className="gradient-blob w-[500px] h-[500px] bg-[radial-gradient(circle,_#9B1C1C_0%,_#7F1D1D_40%,_transparent_70%)] top-[15%] right-[-5%] opacity-40 animate-blob-pulse" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Social Proof Widget — real headshots */}

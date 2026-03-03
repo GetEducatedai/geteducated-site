@@ -15,17 +15,12 @@ const config: Config = {
         border: "#E8E4DF",
         violet: "#7C3AED",
         blue: "#3B82F6",
-        purple: "#A855F7",
+        accent: "#D97706",
       },
       fontFamily: {
-        display: [
-          "Plus Jakarta Sans",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-        ],
-        serif: ["Playfair Display", "Georgia", "serif"],
-        body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        body: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       borderRadius: {
         "4xl": "2rem",

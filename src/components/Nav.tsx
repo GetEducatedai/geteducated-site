@@ -10,17 +10,30 @@ const links = [
   { label: "Contact", href: "/contact" },
 ];
 
+const mobileLinks = [
+  { label: "Home", href: "/" },
+  { label: "Masterclass", href: "/masterclass" },
+  { label: "Community", href: "/#community" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/60 border-b border-white/10">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10"
+      style={{ backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", background: "rgba(0,0,0,0.65)" }}
+    >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
         <a href="/" className="font-display text-xl font-extrabold tracking-tight text-white">
           GetEducated.ai
         </a>
 
-        {/* Desktop */}
+        {/* Desktop links */}
         <div className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
@@ -33,7 +46,7 @@ export default function Nav() {
           ))}
           {/* Divider */}
           <div className="w-px h-5 bg-white/15" />
-          {/* Buttons — tight together */}
+          {/* Buttons */}
           <div className="flex items-center gap-2">
             <a
               href="https://go.geteducated.ai"
@@ -45,14 +58,14 @@ export default function Nav() {
             </a>
             <a
               href="/#pricing"
-              className="bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
+              className="bg-white text-[#0D0D0D] text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display"
             >
               Get Started
             </a>
           </div>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden flex flex-col gap-1.5 p-2"
@@ -64,38 +77,33 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — no gap, flush under nav */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden backdrop-blur-xl bg-black/80 border-t border-white/10 overflow-hidden"
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden border-t border-white/10"
+            style={{ background: "rgba(0,0,0,0.90)", backdropFilter: "blur(20px)" }}
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              {links.map((l) => (
+              {mobileLinks.map((l) => (
                 <a
                   key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-white/60 hover:text-white transition-colors font-body"
+                  className="text-white/70 hover:text-white transition-colors font-body text-base"
                 >
                   {l.label}
                 </a>
               ))}
-              <a
-                href="https://go.geteducated.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white/20 text-white font-semibold px-5 py-2.5 rounded-full text-center hover:bg-white/10 transition font-display"
-              >
-                Login
-              </a>
+              {/* Single CTA */}
               <a
                 href="/#pricing"
                 onClick={() => setOpen(false)}
-                className="bg-white text-ink font-semibold px-5 py-2.5 rounded-full text-center hover:opacity-90 transition mt-1 font-display"
+                className="mt-2 bg-white text-[#0D0D0D] font-semibold px-5 py-3 rounded-full text-center hover:opacity-90 transition font-display"
               >
                 Get Started
               </a>
