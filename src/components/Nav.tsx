@@ -21,7 +21,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
               key={l.label}
@@ -31,20 +31,25 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a
-            href="https://go.geteducated.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/10 transition font-display"
-          >
-            Login
-          </a>
-          <a
-            href="/#pricing"
-            className="bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
-          >
-            Get Started
-          </a>
+          {/* Divider */}
+          <div className="w-px h-5 bg-white/15" />
+          {/* Buttons — tight together */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://go.geteducated.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/10 transition font-display"
+            >
+              Login
+            </a>
+            <a
+              href="/#pricing"
+              className="bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
+            >
+              Get Started
+            </a>
+          </div>
         </div>
 
         {/* Mobile toggle */}
