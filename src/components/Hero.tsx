@@ -2,27 +2,39 @@
 
 import { motion } from "framer-motion";
 
+// Real diverse headshots for social proof widget
+const avatars = [
+  "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=80&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop",
+];
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-cream">
-      {/* Floating gradient blobs */}
-      <div className="gradient-blob w-[500px] h-[500px] bg-[radial-gradient(circle,_#7C3AED_0%,_#3B82F6_50%,_transparent_70%)] top-[10%] right-[-5%] opacity-30 animate-blob-float" />
-      <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#A855F7_0%,_#7C3AED_50%,_transparent_70%)] bottom-[15%] right-[10%] opacity-20 animate-blob-float-delay" />
-      <div className="gradient-blob w-[300px] h-[300px] bg-[radial-gradient(circle,_#3B82F6_0%,_#A855F7_50%,_transparent_70%)] top-[30%] right-[20%] opacity-25 animate-blob-pulse" />
+      {/* Sophisticated dark blobs — deep navy + slate, no purple/pink */}
+      <div className="gradient-blob w-[600px] h-[600px] bg-[radial-gradient(circle,_#0F2044_0%,_#1E3A5F_40%,_transparent_70%)] top-[-5%] right-[-10%] opacity-20 animate-blob-float" />
+      <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#0C1B33_0%,_#162944_50%,_transparent_70%)] bottom-[10%] right-[5%] opacity-15 animate-blob-float-delay" />
+      <div className="gradient-blob w-[350px] h-[350px] bg-[radial-gradient(circle,_#1A1A2E_0%,_#0F2044_50%,_transparent_70%)] top-[25%] left-[-8%] opacity-12 animate-blob-pulse" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Social Proof Widget */}
+        {/* Social Proof Widget — real headshots */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-border rounded-full px-5 py-2.5 mb-8 shadow-sm"
         >
-          {/* Stacked avatars */}
+          {/* Stacked real photo avatars */}
           <div className="flex -space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet to-blue border-2 border-white flex items-center justify-center text-white text-xs font-bold">E</div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple to-violet border-2 border-white flex items-center justify-center text-white text-xs font-bold">A</div>
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue to-purple border-2 border-white flex items-center justify-center text-white text-xs font-bold">M</div>
+            {avatars.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt="Member"
+                className="w-8 h-8 rounded-full border-2 border-white object-cover"
+              />
+            ))}
           </div>
           <span className="font-display font-extrabold text-ink text-lg">50+</span>
           {/* 5 gold stars */}
@@ -70,13 +82,13 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.45 }}
         >
           <a
-            href="#pricing"
+            href="/#pricing"
             className="bg-ink text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition btn-press"
           >
             Join Community
           </a>
           <a
-            href="#masterclass"
+            href="/masterclass"
             className="inline-flex items-center justify-center gap-2 border border-ink/20 text-ink font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-ink/5 transition btn-press"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
