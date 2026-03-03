@@ -149,7 +149,7 @@ export default function Services() {
             transition={{ duration: 0.8, delay: 0.45 }}
           >
             <a
-              href="https://go.geteducated.ai"
+              href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-ink text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98]"
@@ -157,10 +157,10 @@ export default function Services() {
               Book a Free Strategy Call
             </a>
             <a
-              href="#services"
+              href="/#pricing"
               className="border border-ink/20 text-ink font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-ink/5 transition hover:scale-[1.02] active:scale-[0.98]"
             >
-              See Our Services
+              Join Community
             </a>
           </motion.div>
         </div>
@@ -249,7 +249,7 @@ export default function Services() {
                     </ul>
 
                     <a
-                      href="https://go.geteducated.ai"
+                      href="https://tally.so/r/PdzRxb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-ink text-white font-display font-semibold px-6 py-3 rounded-full text-sm hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98] self-start"
@@ -313,7 +313,7 @@ export default function Services() {
               and let&apos;s build something that works while you sleep.
             </p>
             <a
-              href="https://go.geteducated.ai"
+              href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-ink text-white font-display font-semibold px-10 py-4 rounded-full text-lg hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98]"
