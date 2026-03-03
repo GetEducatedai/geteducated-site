@@ -4,23 +4,21 @@ import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
 
 const tradItems = [
-  "Static courses that become outdated",
-  "Learn alone, implement alone",
-  "AI tools without context",
-  "Consume endlessly, build nothing",
-  "Hustle until you burn out",
-  "Access to everyone",
-  "Fragmented across platforms",
+  { label: "$50,000+ in debt", detail: "Before you've earned a dollar" },
+  { label: "4 years minimum", detail: "Outdated by the time you graduate" },
+  { label: "A diploma", detail: "That doesn't guarantee income" },
+  { label: "Office hours (if you're lucky)", detail: "Learn alone, implement alone" },
+  { label: "Theoretical knowledge", detail: "With zero real-world application" },
+  { label: "One-size-fits-all curriculum", detail: "Built for the last decade" },
 ];
 
 const geItems = [
-  "Living curriculum that evolves with AI",
-  "Build alongside vetted creators and founders",
-  "Strategy + systems + community",
-  "Ship within your first 30 days",
-  "Build while prioritizing your wellbeing",
-  "Curating community with standards",
-  "One integrated operating system",
+  { label: "From $97/month", detail: "Start today. Cancel anytime." },
+  { label: "Earn in weeks, not years", detail: "Real skills. Real income. Fast." },
+  { label: "A business", detail: "That generates actual revenue" },
+  { label: "24/7 community", detail: "Mentors + builders on demand" },
+  { label: "Hands-on, live curriculum", detail: "Built for the AI era, right now" },
+  { label: "Your own path", detail: "Curated for where you want to go" },
 ];
 
 function XIcon() {
@@ -104,15 +102,18 @@ export default function WhyDifferent() {
             <div className="space-y-4">
               {tradItems.map((item, i) => (
                 <motion.div
-                  key={item}
+                  key={item.label}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="flex items-center gap-3"
+                  className="flex items-start gap-3"
                 >
                   <XIcon />
-                  <span className="text-sm text-ink/70 font-body">{item}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink/80 font-display">{item.label}</p>
+                    <p className="text-xs text-ink/50 font-body mt-0.5">{item.detail}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -135,15 +136,18 @@ export default function WhyDifferent() {
             <div className="space-y-4">
               {geItems.map((item, i) => (
                 <motion.div
-                  key={item}
+                  key={item.label}
                   initial={{ opacity: 0, x: 10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="flex items-center gap-3"
+                  className="flex items-start gap-3"
                 >
                   <CheckIcon />
-                  <span className="text-sm text-ink font-body">{item}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink font-display">{item.label}</p>
+                    <p className="text-xs text-ink/50 font-body mt-0.5">{item.detail}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
