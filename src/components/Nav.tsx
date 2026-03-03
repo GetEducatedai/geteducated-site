@@ -21,7 +21,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-3">
           {links.map((l) => (
             <a
               key={l.label}
@@ -43,7 +43,7 @@ export default function Nav() {
             href="/#pricing"
             className="bg-white text-ink text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition font-display btn-press"
           >
-            Join Us
+            Get Started
           </a>
         </div>
 
@@ -92,7 +92,7 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
                 className="bg-white text-ink font-semibold px-5 py-2.5 rounded-full text-center hover:opacity-90 transition mt-1 font-display"
               >
-                Join Us
+                Get Started
               </a>
             </div>
           </motion.div>
