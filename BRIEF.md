@@ -291,3 +291,130 @@ Design: Clean, minimal, editorial feel matching site aesthetic
 - Direct email CTA: "Prefer email? Reach us at info@geteducated.ai"
 - Social links strip at bottom (same icons as footer)
 - Also add mailto:info@geteducated.ai to footer "Contact" link
+
+---
+
+## MASTERCLASS PAGE (/masterclass) — COLD TRAFFIC AD FUNNEL
+
+**Purpose:** Standalone landing page for paid ads → free masterclass signup → upsell to membership
+
+### Section 1: Hero
+- Red "● Live Now" pill badge
+- H1: "Build a profitable AI consulting business in 30 days for non-techies"
+- Sub: "The complete system for positioning yourself as an AI expert, landing $5K-$15K clients, and delivering world-class solutions— even if you're completely non-technical."
+- Email input + "Get Access" black pill button
+- Social proof below CTA: stacked 3 avatars + "250+" + ⭐⭐⭐⭐⭐ + "No credit card required. Instant access."
+- VSL video placeholder (laptop mockup frame with play button)
+
+### Section 2: Problem
+- Headline: "You're not alone. Most people feel this way."
+- 3 pain point cards:
+  1. "I'm not technical enough" — "You've heard AI is the future, but every course assumes you can code. You're strategic and business-savvy—but not a developer. And you think that disqualifies you."
+  2. "I don't know where to start" — "Thousands of AI tools. Everyone talking about ChatGPT and automation. But which tools actually matter for consulting? How do you cut through the noise?"
+  3. "I can't deliver the work" — "Maybe you could sell AI consulting services—but then what? How do you actually build the solutions? You don't have time to become a developer. And you can't afford to fail your first client."
+- Bold truth statement: "Here's the truth: Being non-technical is actually your biggest advantage."
+- Supporting: "You speak business language, not code. / You understand client problems, not algorithms. / You ask the right questions instead of jumping to technical solutions."
+- "This is exactly what businesses need."
+- CTA: "Get Instant Access"
+
+### Section 3: Is This Right For You?
+- Headline: "Is this training right for you?"
+- Sub: "You don't want to learn AI for curiosity — you want to build leverage."
+- Two column split:
+  - THIS IS FOR YOU IF ✅: consultant/coach adding AI | business-savvy not technical | wants proven system not tool tutorials | ready to act in 30 days | willing to do outreach
+  - THIS IS NOT FOR YOU IF ❌: passive income / get-rich-quick | expects results without outreach | doesn't really want AI business | can't invest 10-15 hrs/week for 30 days | not willing to hear "no"
+- CTA: "Get Started Now"
+
+### Section 4: Tech Logos
+- "POWERED BY WORLD-CLASS TECH" label
+- Logos: n8n, Make (Integromat), OpenAI, Midjourney, Runway
+
+### Section 5: Curriculum (numbered vertical timeline)
+- Headline: "What you'll learn in this free masterclass"
+- Sub: "A repeatable system for turning AI into paid advisory work — without becoming technical."
+- 01 - The positioning formula: position as AI expert from zero. Bullets: 3 AI consulting angles, specialist statement, sound credible in first convo
+- 02 - Client acquisition: find businesses paying $5K-$15K. Bullets: 3 highest-ROI channels, "AI Business Audit" framework (80% conversion), outreach scripts for LinkedIn/email/communities
+- 03 - Pricing & closing: price confidently and close deals. Bullets: value-based pricing framework, pricing & proposal templates, monthly retainer model for recurring revenue
+- 04 - Delivery without coding: deliver without building anything yourself. Bullets: Path A (work with developers, DIY model), Path B (partnership delivery, earn 30-40%), scale without becoming bottleneck
+- 05 - Your 30-day roadmap: exact week-by-week plan to land first client. Bullets: what to focus on in first 30 days, what to ignore, move from learning → outreach → paid work
+- CTA: "Watch Free Masterclass"
+
+### Section 6: Bonus Templates
+- "Modules" pill badge
+- Headline: "Plus, you'll get access to these free plug-and-play templates"
+- Sub: "Stop building from scratch. Get the exact templates and scripts we use with our paying clients."
+- Center: AI Consultant Blueprint cover (Emaan photo in white blazer, dark blue bg) — use /images/emaan-headshot.jpg or request new white blazer photo
+- 5 template items:
+  1. AI Services Catalog — comprehensive list of AI solutions with pricing
+  2. AI Business Audit Template — converts prospects to clients
+  3. Proposal & Contract Templates — done-for-you proposals
+  4. Outreach Script Library — 20+ proven scripts for cold outreach
+  5. 30-Day Launch Roadmap — week-by-week action plan
+- CTA: "Get Instant Access"
+
+### Section 7: Meet Your Instructor
+- Photo: Emaan (casual look preferred — need the brownish/mauve top photo from original site, NOT red dress)
+- "Meet Your Instructor" headline
+- "Hey, I'm Emaan Faith."
+- Full bio (see instructor bio section above in BRIEF)
+- CTA: "Get Instant Access"
+- Below: horizontal scrolling course cover strip (existing covers: ManyChat Automation, The AI Academy, Avatar Mastery, Learn N8N, Mindset Mastery — use as reference, these are real courses)
+
+### Section 8: FAQ (accordion)
+- "● FAQs" pill
+- Headline: "Got questions? We have answers"
+- Sub: "Everything you need to know about our process, and how we deliver results."
+- Questions:
+  1. Is this really free?
+  2. How long is the training?
+  3. Do I need any technical skills?
+  4. What if I don't have time to start a business right now?
+  5. What happens after I register?
+  6. How is this different from other platforms?
+  7. Do you offer refunds?
+
+### Section 9: Email Capture Footer
+- "Learn with intention. Build with clarity. Rise collectively."
+- Sub: "Thoughts on AI, building, and intentional work — shared directly to your inbox."
+- Email input + submit button
+- "No spam. Unsubscribe anytime."
+- Full footer
+
+---
+
+## FAQ SECTION — HOME PAGE
+
+Also add FAQ accordion to main home page (about the community, not the masterclass):
+Questions:
+1. What is GetEducated.ai?
+2. Who is this for?
+3. What's included in the membership?
+4. Is there a free option?
+5. How is this different from other AI courses?
+6. When is the next live event?
+7. Can I cancel my membership anytime?
+8. What's the difference between Members and Architects?
+
+---
+
+## FOOTER — DARK MODE
+Footer background: #0D0D0D (near black)
+Text: white / gray-400 for secondary
+Links: white with hover underline
+Social icons: white
+Email subscribe form: dark card style
+Keep the "Learn with intention. Build with clarity. Rise collectively." tagline
+Match the original Framer dark footer aesthetic
+
+## BENTO GRID — NEEDS FULL REDESIGN (not a copy, make it premium)
+The current rebuild looks basic. Requirements for a premium version:
+- Real CSS Grid with precise column/row spans (not flexbox hacks)
+- Cards must have genuine depth: real box shadows, subtle borders, glass/frosted effects on dark cards
+- Community card: avatars must be real overlapping circles with ring borders, not generic placeholders
+- Academy card: category pills must actually scroll horizontally on mobile, Emaan's photo must fill the right half properly clipped
+- Templates card: the gradient must be a REAL swirling abstract background (use radial gradients layered, not just a flat gradient)
+- Collaborations card: chat bubbles must look like actual iMessage-style UI with tails
+- Events card: full-bleed image with a proper dark overlay gradient, text must pop
+- Find Your People card: avatars must stack with z-index offsets and a "+53" counter circle
+- Overall: generous padding, nothing cramped, cards breathe
+- On mobile: stack gracefully, maintain visual hierarchy

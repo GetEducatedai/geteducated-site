@@ -4,108 +4,163 @@ import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
 
 const tradItems = [
-  { icon: "💸", label: "$50,000+ debt", detail: "Before you even start" },
-  { icon: "📅", label: "4 years minimum", detail: "Outdated by graduation" },
-  { icon: "📄", label: "A diploma", detail: "That doesn't guarantee income" },
-  { icon: "👤", label: "Office hours", detail: "If you're lucky" },
+  "Static courses that become outdated",
+  "Learn alone, implement alone",
+  "AI tools without context",
+  "Consume endlessly, build nothing",
+  "Hustle until you burn out",
+  "Access to everyone",
+  "Fragmented across platforms",
 ];
 
 const geItems = [
-  { icon: "⚡", label: "From $97/mo", detail: "Start immediately, cancel anytime" },
-  { icon: "🚀", label: "Earn in weeks", detail: "Real skills, real income, fast" },
-  { icon: "🏗️", label: "A business", detail: "That generates actual revenue" },
-  { icon: "🤝", label: "24/7 community", detail: "Mentors + builders on demand" },
+  "Living curriculum that evolves with AI",
+  "Build alongside vetted creators and founders",
+  "Strategy + systems + community",
+  "Ship within your first 30 days",
+  "Build while prioritizing your wellbeing",
+  "Curating community with standards",
+  "One integrated operating system",
 ];
+
+function XIcon() {
+  return (
+    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
+      <svg className="w-3.5 h-3.5 text-red-500" viewBox="0 0 14 14" fill="none">
+        <path d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
+      <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 14 14" fill="none">
+        <path d="M2.5 7L5.5 10L11.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </div>
+  );
+}
+
+function SadFaceIcon() {
+  return (
+    <svg className="w-5 h-5 text-ink/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 15s1.5-2 4-2 4 2 4 2" strokeLinecap="round" />
+      <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function SmileFaceIcon() {
+  return (
+    <svg className="w-5 h-5 text-ink/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 13s1.5 3 4 3 4-3 4-3" strokeLinecap="round" />
+      <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export default function WhyDifferent() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-24 px-6 bg-[#EBEBEB]">
+      <div className="max-w-5xl mx-auto">
         <AnimateIn>
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 bg-white text-ink text-xs font-semibold px-4 py-2 rounded-full border border-border shadow-sm font-body">
+              <span className="w-2 h-2 rounded-full bg-red-500 inline-block" />
+              Why Us
+            </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
-            Why we&apos;re{" "}
+            How GetEducated.ai is{" "}
             <span className="font-serif italic font-bold">different</span>
           </h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
-            Traditional education wasn&apos;t built for this era. We were.
+          <p className="text-muted text-center max-w-xl mx-auto mb-14 font-body text-base">
+            The traditional way of learning and building businesses is outdated.
+            We&apos;re building what comes next.
           </p>
         </AnimateIn>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Traditional Education Card */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Traditional AI Education Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-[24px] border border-border bg-cream/50 p-8 sm:p-10 relative overflow-hidden"
+            transition={{ duration: 0.5 }}
+            className="rounded-[20px] bg-white p-8 shadow-sm"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle,_#dc2626_0%,_transparent_70%)] opacity-5 blur-2xl" />
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
-                <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <h3 className="font-display text-xl font-bold text-ink">Traditional Education</h3>
+            <div className="flex items-center gap-2 mb-7">
+              <SadFaceIcon />
+              <h3 className="font-body text-base font-semibold text-ink/60">
+                Traditional AI Education
+              </h3>
             </div>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {tradItems.map((item, i) => (
                 <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={item}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  className="flex items-start gap-4"
+                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  className="flex items-center gap-3"
                 >
-                  <span className="text-2xl">{item.icon}</span>
-                  <div>
-                    <p className="font-display font-semibold text-ink text-sm">{item.label}</p>
-                    <p className="text-muted text-xs font-body">{item.detail}</p>
-                  </div>
+                  <XIcon />
+                  <span className="text-sm text-ink/70 font-body">{item}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* GetEducated Card */}
+          {/* GetEducated.ai Ecosystem Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-[24px] border-2 border-violet/30 bg-white p-8 sm:p-10 relative overflow-hidden shadow-lg shadow-violet/5"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-[20px] bg-white p-8 shadow-sm"
           >
-            <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle,_#7C3AED_0%,_transparent_70%)] opacity-10 blur-2xl" />
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-full bg-violet/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="font-display text-xl font-bold text-ink">GetEducated.ai</h3>
+            <div className="flex items-center gap-2 mb-7">
+              <SmileFaceIcon />
+              <h3 className="font-body text-base font-semibold text-ink">
+                GetEducated.ai Ecosystem
+              </h3>
             </div>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {geItems.map((item, i) => (
                 <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={item}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  className="flex items-start gap-4"
+                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  className="flex items-center gap-3"
                 >
-                  <span className="text-2xl">{item.icon}</span>
-                  <div>
-                    <p className="font-display font-semibold text-ink text-sm">{item.label}</p>
-                    <p className="text-muted text-xs font-body">{item.detail}</p>
-                  </div>
+                  <CheckIcon />
+                  <span className="text-sm text-ink font-body">{item}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
+
+        {/* CTA */}
+        <AnimateIn delay={0.3}>
+          <div className="flex justify-center mt-12">
+            <a
+              href="#pricing"
+              className="bg-ink text-white text-sm font-semibold px-8 py-3.5 rounded-full hover:opacity-90 transition font-display btn-press"
+            >
+              Join Community
+            </a>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   );
