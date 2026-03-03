@@ -115,3 +115,42 @@ Separate `/services` page. This is the primary cold traffic landing page for ads
 
 ### Nav update:
 Add "Services" link to main nav pointing to `/services`
+
+---
+
+## ANIMATIONS & INTERACTIVE COMPONENTS (Priority — Make It Futuristic)
+
+### Hero Animations
+- Text reveal: words animate in with staggered fade+slide (not all at once)
+- Gradient blobs: slow continuous float + scale pulse (CSS keyframes)
+- Scroll indicator: animated bouncing arrow or dot
+- Counter animation: "150+ members" counts up when scrolled into view
+
+### Service Cards (Services Page)
+- Hover: card lifts (translateY -8px), subtle violet glow shadow, image zooms 1.05x
+- Icon: rotates or pulses on hover
+- Reveal: cards stagger in from bottom on scroll
+
+### Bento Grid
+- Each card has a unique micro-animation on hover (scale, glow, border color shift)
+- Mix card sizes (2 large, 4 small) for asymmetric editorial layout
+- One card has an animated counter/number
+- One card has a looping gradient shimmer effect
+
+### Global
+- Smooth page transitions (Framer Motion layout animations)
+- Magnetic buttons: CTAs subtly follow cursor on hover (JS mousemove)
+- Custom cursor: replace default cursor with a small dot + circle follower
+- Scroll-triggered reveals: every section fades+slides up as it enters viewport
+- Number counters animate when scrolled into view
+- Marquee pauses on hover, resumes on mouseout
+
+### Services Page Specific
+- Hero section: floating 3D-ish cards rotate slightly on scroll (parallax)
+- Service cards: click to expand with more details (accordion style)
+- Stats section: animated counters (e.g. "50+ AI Agents Built", "3 Countries", "2 Happy Clients")
+- Process steps: numbered steps with connecting animated line between them
+
+### Typography Effects
+- Hero headline: each word or line has a slight blur-to-clear reveal
+- Key italic Playfair words: subtle underline draw animation on load

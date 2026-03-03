@@ -4,11 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { label: "Home", href: "#" },
-  { label: "Academy", href: "#courses" },
-  { label: "Community", href: "#community" },
-  { label: "Events", href: "#events" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Academy", href: "/#courses" },
+  { label: "Community", href: "/#community" },
+  { label: "Events", href: "/#events" },
+  { label: "About", href: "/#about" },
 ];
 
 export default function Nav() {
@@ -17,7 +18,7 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-md border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-extrabold tracking-tight text-ink">
+        <a href="/" className="font-display text-xl font-extrabold tracking-tight text-ink">
           GetEducated.ai
         </a>
 
