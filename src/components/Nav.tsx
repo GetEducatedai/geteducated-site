@@ -43,8 +43,8 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="font-display text-xl font-extrabold tracking-tight text-white">
-          GetEducated.ai
+        <a href="/" className="flex items-center">
+          <img src="/images/logo-white.png" alt="GetEducated.ai" className="h-8 w-auto object-contain" />
         </a>
 
         {/* Desktop links */}

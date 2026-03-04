@@ -67,8 +67,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href="/" className="font-display text-2xl font-extrabold tracking-tight text-white">
-              GetEducated.ai
+            <a href="/" className="flex items-center">
+              <img src="/images/logo-white.png" alt="GetEducated.ai" className="h-9 w-auto object-contain" />
             </a>
             <p className="text-white/50 text-sm mt-4 max-w-sm leading-relaxed font-body">
               Learn with intention. Build with clarity. Rise collectively.
