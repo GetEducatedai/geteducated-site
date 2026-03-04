@@ -1,192 +1,140 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-/* ─── Animated Counter ─── */
-function Counter({
-  target,
-  suffix = "",
-  prefix = "",
+const cards = [
+  {
+    num: "01",
+    title: "Academy",
+    desc: "Structured courses that teach you real AI skills — from automation to client acquisition. No fluff, just results.",
+    glow: "var(--glow-teal)",
+    span: "",
+  },
+  {
+    num: "02",
+    title: "Community",
+    desc: "24/7 access to a global network of AI creators, builders, and entrepreneurs who share wins, strategies, and support.",
+    glow: "var(--glow-coral)",
+    span: "",
+  },
+  {
+    num: "03",
+    title: "Templates",
+    desc: "Done-for-you workflows, proposals, and automation blueprints you can deploy in minutes — not weeks.",
+    glow: "var(--glow-violet)",
+    span: "",
+  },
+  {
+    num: "04",
+    title: "Collaborations",
+    desc: "Get matched with other members for joint ventures, client projects, and creative partnerships.",
+    glow: "var(--glow-indigo)",
+    span: "",
+  },
+  {
+    num: "05",
+    title: "Live Events",
+    desc: "Weekly workshops, AMAs, and masterminds with top AI builders. Plus exclusive in-person retreats.",
+    glow: "var(--glow-amber)",
+    span: "",
+  },
+];
+
+function BentoCard({
+  num,
+  title,
+  desc,
+  glow,
+  index,
 }: {
-  target: number;
-  suffix?: string;
-  prefix?: string;
+  num: string;
+  title: string;
+  desc: string;
+  glow: string;
+  index: number;
 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!inView) return;
-
-    const duration = 2000; // ms
-    const startTime = performance.now();
-
-    function tick(now: number) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * target));
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
-    }
-
-    requestAnimationFrame(tick);
-  }, [inView, target]);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <span ref={ref}>
-      {prefix}
-      {count.toLocaleString()}
-      {suffix}
-    </span>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
+      className="group relative bg-white rounded-2xl p-8 transition-all duration-300 overflow-hidden"
+      style={{ border: "1px solid var(--light-border)" }}
+    >
+      {/* Hover glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+        style={{ background: `radial-gradient(ellipse at center, ${glow}, transparent 70%)` }}
+      />
+      <div className="relative z-10">
+        <span className="text-[#DC2626] text-sm font-bold font-display">
+          {num}
+        </span>
+        <h3 className="text-[#0A0A0A] text-xl font-extrabold font-display mt-2 mb-3">
+          {title}
+        </h3>
+        <p className="text-[#6B6B6B] text-sm leading-relaxed font-display">
+          {desc}
+        </p>
+      </div>
+    </motion.div>
   );
 }
 
-/* ─── Avatar URLs ─── */
-const avatars = [
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face",
-];
-
-/* ─── Social Proof Quotes ─── */
-const quotes = [
-  {
-    handle: "@sarah_builds",
-    text: "Just landed my first AI consulting client \u2014 $3,500 retainer!",
-  },
-  {
-    handle: "@marcus_ai",
-    text: "Shipped my ManyChat automation for a restaurant chain. 3 new clients this week",
-  },
-  {
-    handle: "@priya.creates",
-    text: "Went from zero to $8K/mo in 60 days using the blueprint",
-  },
-];
-
-/* ─── Main Section ─── */
 export default function BentoGrid() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.1 });
+
   return (
-    <section id="community" className="py-24 px-6 bg-[#080808] text-white">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-24 px-6 noise-light" style={{ background: "#EBEBEB" }}>
+      <div className="relative z-10 max-w-6xl mx-auto" ref={sectionRef}>
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-4">
-            <span>&#9679;</span> Community
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Built for{" "}
-            <span className="font-serif italic font-normal">
-              collective growth
-            </span>
-          </h2>
-          <p className="text-white/60 max-w-xl mx-auto font-display">
-            A global network of AI creators, builders, and entrepreneurs.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-16"
+        >
+          <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#DC2626]" />
+            What You Get
           </p>
-        </div>
+          <h2 className="text-[#0A0A0A] font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+            Everything you need to
+            <br />
+            build and scale.
+          </h2>
+        </motion.div>
 
-        {/* Part A — Stats Row */}
-        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-20">
-          <div className="text-center">
-            <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text-warm">
-              <Counter target={2500} suffix="+" />
-            </div>
-            <p className="text-white/50 text-sm mt-2 font-display">
-              Members Worldwide
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text-warm">
-              <Counter target={47} />
-            </div>
-            <p className="text-white/50 text-sm mt-2 font-display">
-              Countries
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text-warm">
-              <Counter target={94} suffix="%" />
-            </div>
-            <p className="text-white/50 text-sm mt-2 font-display">
-              Report income within 90 days
-            </p>
-          </div>
-        </div>
-
-        {/* Part B — Rotating Member Ring */}
-        <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] mx-auto mb-20">
-          {/* Outer rotating ring */}
-          <div className="avatar-orbit relative w-full h-full">
-            {avatars.map((src, i) => {
-              const angle = (i / 8) * 360 * (Math.PI / 180);
-              const top = 50 + 45 * Math.sin(angle);
-              const left = 50 + 45 * Math.cos(angle);
-              return (
-                <img
-                  key={i}
-                  src={src}
-                  alt=""
-                  className="avatar-counter-rotate absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/20 object-cover"
-                  style={{
-                    top: `${top}%`,
-                    left: `${left}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                  loading="lazy"
-                />
-              );
-            })}
-          </div>
-          {/* Center text */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white font-display font-bold text-lg text-center">
-              Join the
-              <br />
-              Community
-            </span>
-          </div>
-        </div>
-
-        {/* Part C — Social Proof Feed */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {quotes.map((q, i) => (
-            <motion.div
-              key={q.handle}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6"
-            >
-              {/* iMessage-style chat bubble */}
-              <div className="bg-white/10 rounded-2xl rounded-tl-sm p-4 mb-4">
-                <p className="text-white/80 text-sm">{q.text}</p>
-              </div>
-              <p className="text-[#D97706] text-sm font-semibold font-display">
-                {q.handle}
-              </p>
-            </motion.div>
+        {/* Bento grid */}
+        <div className="grid md:grid-cols-3 gap-[1px] bg-[#D4D4D4] rounded-2xl overflow-hidden">
+          {/* Top row — 3 cards */}
+          {cards.slice(0, 3).map((card, i) => (
+            <BentoCard key={card.num} {...card} index={i} />
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <a
-            href="/#pricing"
-            className="btn-gradient btn-glow inline-block px-10 py-4 rounded-full text-white font-display font-semibold text-lg mt-16"
+          {/* Bottom row — 2 cards + 1 dark statement */}
+          {cards.slice(3).map((card, i) => (
+            <BentoCard key={card.num} {...card} index={i + 3} />
+          ))}
+          {/* Statement card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            className="bg-[#0A0A0A] rounded-2xl p-8 flex flex-col justify-center"
           >
-            Join the Community
-          </a>
+            <h3 className="text-white text-2xl sm:text-3xl font-black font-display leading-tight">
+              Find your people.
+              <br />
+              <span className="text-[#DC2626]">Build your future.</span>
+            </h3>
+          </motion.div>
         </div>
       </div>
     </section>

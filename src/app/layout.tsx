@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import ProgressBar from "@/components/ProgressBar";
 import StickyCTA from "@/components/StickyCTA";
 import ActivityFeed from "@/components/ActivityFeed";
 
-const instrumentSans = Instrument_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -33,10 +32,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable}`}
+      className={`${plusJakarta.variable}`}
     >
-      <body className="font-display antialiased bg-cream text-ink overflow-x-hidden">
-        <ProgressBar />
+      <body className="font-display antialiased bg-dark-bg text-light-text overflow-x-hidden">
         <SmoothScroll>
           {children}
         </SmoothScroll>

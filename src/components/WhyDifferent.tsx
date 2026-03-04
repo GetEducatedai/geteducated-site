@@ -1,170 +1,117 @@
 "use client";
 
-import { motion } from "framer-motion";
-import AnimateIn from "./AnimateIn";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-const tradItems = [
-  { label: "$50,000+ in debt", detail: "Before you've earned a dollar" },
-  { label: "4 years minimum", detail: "Outdated by the time you graduate" },
-  { label: "A diploma", detail: "That doesn't guarantee income" },
-  { label: "Office hours (if you're lucky)", detail: "Learn alone, implement alone" },
-  { label: "Theoretical knowledge", detail: "With zero real-world application" },
-  { label: "One-size-fits-all curriculum", detail: "Built for the last decade" },
+const bullets = [
+  "Built by AI creators, for AI creators — not academics",
+  "Revenue-focused curriculum, not theory",
+  "Templates and workflows you deploy immediately",
+  "A community that holds you accountable",
+  "Real results within 90 days, or your money back",
 ];
 
-const geItems = [
-  { label: "From $97/month", detail: "Start today. Cancel anytime." },
-  { label: "Earn in weeks, not years", detail: "Real skills. Real income. Fast." },
-  { label: "A business", detail: "That generates actual revenue" },
-  { label: "24/7 community", detail: "Mentors + builders on demand" },
-  { label: "Hands-on, live curriculum", detail: "Built for the AI era, right now" },
-  { label: "Your own path", detail: "Curated for where you want to go" },
+const comparisons = [
+  { trad: "Theory-heavy, outdated curriculum", ge: "Live, practical, built for today" },
+  { trad: "$50K+ debt before earning a dollar", ge: "From $97/mo — start today" },
+  { trad: "4-year commitment minimum", ge: "Earn in weeks, not years" },
+  { trad: "Learn alone, struggle alone", ge: "24/7 community + mentorship" },
+  { trad: "A diploma that doesn't guarantee income", ge: "Real skills that generate real revenue" },
 ];
-
-function XIcon() {
-  return (
-    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
-      <svg className="w-3.5 h-3.5 text-red-500" viewBox="0 0 14 14" fill="none">
-        <path d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </div>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
-      <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 14 14" fill="none">
-        <path d="M2.5 7L5.5 10L11.5 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </div>
-  );
-}
-
-function SadFaceIcon() {
-  return (
-    <svg className="w-5 h-5 text-ink/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M8 15s1.5-2 4-2 4 2 4 2" strokeLinecap="round" />
-      <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function SmileFaceIcon() {
-  return (
-    <svg className="w-5 h-5 text-ink/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M8 13s1.5 3 4 3 4-3 4-3" strokeLinecap="round" />
-      <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
 
 export default function WhyDifferent() {
-  return (
-    <section className="py-24 px-6 bg-[#EBEBEB]">
-      <div className="max-w-5xl mx-auto">
-        <AnimateIn>
-          <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display">
-              <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
-              Why Us
-            </span>
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
-            How GetEducated.ai is{" "}
-            <span className="font-serif italic font-bold">different</span>
-          </h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-14 font-body text-base">
-            The traditional way of learning and building businesses is outdated.
-            We&apos;re building what comes next.
-          </p>
-        </AnimateIn>
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Traditional AI Education Card */}
+  return (
+    <section className="relative py-24 px-6 bg-[#08080E] dot-grid overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto" ref={sectionRef}>
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left column */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-[20px] bg-white p-8 shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-2 mb-7">
-              <SadFaceIcon />
-              <h3 className="font-body text-base font-semibold text-ink/60">
-                Traditional AI Education
-              </h3>
-            </div>
-            <div className="space-y-4">
-              {tradItems.map((item, i) => (
-                <motion.div
-                  key={item.label}
+            <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#DC2626]" />
+              Why We&apos;re Different
+            </p>
+            <h2 className="text-white font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">
+              Not a course.
+              <br />
+              Not a coach.
+              <br />
+              <span className="text-[#DC2626]">Infrastructure.</span>
+            </h2>
+            <p className="text-white/50 text-base mb-8 max-w-md font-display leading-relaxed">
+              We don&apos;t sell you information — we give you the systems,
+              community, and tools to build a real AI business.
+            </p>
+            <ul className="space-y-3">
+              {bullets.map((b, i) => (
+                <motion.li
+                  key={b}
                   initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="flex items-start gap-3"
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="flex items-start gap-3 text-white/70 text-sm font-display"
                 >
-                  <XIcon />
-                  <div>
-                    <p className="text-sm font-semibold text-ink/80 font-display">{item.label}</p>
-                    <p className="text-xs text-ink/50 font-body mt-0.5">{item.detail}</p>
-                  </div>
-                </motion.div>
+                  <span className="text-[#DC2626] mt-0.5">—</span>
+                  {b}
+                </motion.li>
               ))}
-            </div>
+            </ul>
           </motion.div>
 
-          {/* GetEducated.ai Ecosystem Card */}
+          {/* Right column — Comparison table */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-[20px] bg-white p-8 shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="rounded-2xl overflow-hidden"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
           >
-            <div className="flex items-center gap-2 mb-7">
-              <SmileFaceIcon />
-              <h3 className="font-body text-base font-semibold text-ink">
-                GetEducated.ai Ecosystem
-              </h3>
+            {/* Header */}
+            <div className="grid grid-cols-2 border-b border-white/[0.06]">
+              <div className="px-6 py-4">
+                <span className="text-white/40 text-xs font-semibold font-display uppercase tracking-wider">
+                  Traditional Education
+                </span>
+              </div>
+              <div className="px-6 py-4 border-l border-white/[0.06]">
+                <span className="text-[#DC2626] text-xs font-semibold font-display uppercase tracking-wider">
+                  GetEducated.ai
+                </span>
+              </div>
             </div>
-            <div className="space-y-4">
-              {geItems.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.06 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckIcon />
-                  <div>
-                    <p className="text-sm font-semibold text-ink font-display">{item.label}</p>
-                    <p className="text-xs text-ink/50 font-body mt-0.5">{item.detail}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+
+            {/* Rows */}
+            {comparisons.map((row, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
+                className="grid grid-cols-2 border-b border-white/[0.06] last:border-b-0"
+              >
+                <div className="px-6 py-4">
+                  <span className="text-white/30 text-sm font-display line-through">
+                    {row.trad}
+                  </span>
+                </div>
+                <div className="px-6 py-4 border-l border-white/[0.06]">
+                  <span className="text-white/80 text-sm font-display">
+                    {row.ge}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-
-        {/* CTA */}
-        <AnimateIn delay={0.3}>
-          <div className="flex justify-center mt-12">
-            <a
-              href="#pricing"
-              className="btn-gradient btn-glow text-white text-sm font-semibold px-8 py-3.5 rounded-full transition font-display btn-press"
-            >
-              Join Community
-            </a>
-          </div>
-        </AnimateIn>
       </div>
     </section>
   );

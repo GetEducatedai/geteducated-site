@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
-import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
   title: "Services — GetEducated.ai | AI Agents, Branding & Software",
@@ -24,7 +23,6 @@ export default function ServicesPage() {
         <Services />
       </main>
       <Footer />
-      <Chatbot />
     </>
   );
 }
