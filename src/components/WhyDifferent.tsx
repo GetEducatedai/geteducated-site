@@ -22,7 +22,7 @@ export default function WhyDifferent() {
 
   return (
     <section className="relative py-24 px-6 bg-[#08080E] dot-grid overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto" ref={sectionRef}>
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left column */}
           <motion.div

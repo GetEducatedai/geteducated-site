@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import HowItWorks from "@/components/HowItWorks";
 import BentoGrid from "@/components/BentoGrid";
 import WhyDifferent from "@/components/WhyDifferent";
 import Pricing from "@/components/Pricing";
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
+        <HowItWorks />
         <BentoGrid />
         <WhyDifferent />
         <Pricing />

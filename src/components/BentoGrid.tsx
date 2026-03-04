@@ -53,11 +53,8 @@ function BentoCard({
   glow: string;
   index: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
@@ -88,7 +85,7 @@ export default function BentoGrid() {
 
   return (
     <section className="relative py-24 px-6 noise-light" style={{ background: "#EBEBEB" }}>
-      <div className="relative z-10 max-w-6xl mx-auto" ref={sectionRef}>
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -3,10 +3,8 @@
 import { motion } from "framer-motion";
 
 export default function CTABand() {
-  const ref = useRef<HTMLDivElement>(null);
-
   return (
-    <section ref={ref} className="relative py-24 px-6 bg-[#08080E] dot-grid">
+    <section className="relative py-24 px-6 bg-[#08080E] dot-grid">
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

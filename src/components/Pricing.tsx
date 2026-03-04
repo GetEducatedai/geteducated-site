@@ -48,7 +48,7 @@ export default function Pricing() {
       className="relative py-24 px-6 noise-light"
       style={{ background: "#EBEBEB" }}
     >
-      <div className="relative z-10 max-w-5xl mx-auto" ref={sectionRef}>
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

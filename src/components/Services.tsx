@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AnimateIn from "./AnimateIn";
 
 const services = [
   {
@@ -99,27 +98,22 @@ const clients = [
 export default function Services() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 overflow-hidden bg-cream">
-        {/* Gradient blobs */}
-        <div className="gradient-blob w-[500px] h-[500px] bg-[radial-gradient(circle,_#7C3AED_0%,_#3B82F6_50%,_transparent_70%)] top-[10%] right-[-5%] opacity-30 animate-blob-float" />
-        <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#A855F7_0%,_#7C3AED_50%,_transparent_70%)] bottom-[15%] left-[-5%] opacity-20 animate-blob-float-delay" />
-        <div className="gradient-blob w-[300px] h-[300px] bg-[radial-gradient(circle,_#3B82F6_0%,_#A855F7_50%,_transparent_70%)] top-[40%] right-[15%] opacity-25 animate-blob-pulse" />
-
+      {/* Hero — dark */}
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 overflow-hidden bg-[#08080E] dot-grid">
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-8">
-              <span className="w-2 h-2 bg-[#9B1C1C] rounded-full animate-pulse" />
+            <p className="text-[#DC2626] text-sm font-semibold font-display mb-6 flex items-center justify-center gap-2">
+              <span className="w-2 h-2 bg-[#DC2626] rounded-full animate-pulse" />
               Now accepting new clients
-            </div>
+            </p>
           </motion.div>
 
           <motion.h1
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6 text-ink"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] mb-6 text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
@@ -127,13 +121,13 @@ export default function Services() {
             Your competitors are building
             <br />
             AI-powered{" "}
-            <span className="font-serif italic font-normal">systems.</span>
+            <span className="text-[#DC2626]">systems.</span>
             <br />
             Are you?
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl text-muted max-w-2xl mx-auto mb-10 font-body"
+            className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto mb-10 font-display"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -152,13 +146,13 @@ export default function Services() {
               href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gradient btn-glow text-white font-display font-semibold px-8 py-4 rounded-full text-lg transition hover:scale-[1.02] active:scale-[0.98]"
+              className="bg-[#DC2626] text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-[#B91C1C] transition btn-press"
             >
               Book a Free Strategy Call
             </a>
             <a
               href="/#pricing"
-              className="border border-ink/20 text-ink font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-ink/5 transition hover:scale-[1.02] active:scale-[0.98]"
+              className="border border-white/20 text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/5 transition btn-press"
             >
               Join Community
             </a>
@@ -166,19 +160,26 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Service Cards */}
-      <section id="services" className="py-24 px-6 bg-white">
+      {/* Service Cards — light */}
+      <section id="services" className="py-24 px-6 noise-light" style={{ background: "#EBEBEB" }}>
         <div className="max-w-6xl mx-auto">
-          <AnimateIn>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
-              What we{" "}
-              <span className="font-serif italic font-normal">build.</span>
-            </h2>
-            <p className="text-muted text-center max-w-xl mx-auto mb-16 font-body">
-              Three core services. One goal: give your business an unfair
-              advantage with AI.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-16"
+          >
+            <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#DC2626]" />
+              What We Build
             </p>
-          </AnimateIn>
+            <h2 className="text-[#0A0A0A] font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+              Three core services.
+              <br />
+              <span className="text-[#DC2626]">One unfair advantage.</span>
+            </h2>
+          </motion.div>
 
           <div className="grid gap-8">
             {services.map((service, i) => (
@@ -186,14 +187,17 @@ export default function Services() {
                 key={service.name}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative bg-white rounded-2xl overflow-hidden transition-all duration-300"
+                style={{ border: "1px solid #D4D4D4" }}
               >
-              <div className="group relative rounded-[20px] border border-border bg-cream overflow-hidden hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300">
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image */}
                   <div
-                    className={`relative h-64 md:h-auto min-h-[320px] overflow-hidden ${i % 2 === 1 ? "md:order-2" : ""}`}
+                    className={`relative h-64 md:h-auto min-h-[320px] overflow-hidden ${
+                      i % 2 === 1 ? "md:order-2" : ""
+                    }`}
                   >
                     <Image
                       src={service.image}
@@ -202,25 +206,25 @@ export default function Services() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
 
                   {/* Content */}
                   <div className="p-8 sm:p-10 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-[#DC2626]/10 text-[#DC2626] flex items-center justify-center">
                         {service.icon}
                       </div>
-                      <span className="text-xs font-semibold text-[#D97706] bg-[#D97706]/10 px-3 py-1 rounded-full font-display uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-[#DC2626] bg-[#DC2626]/10 px-3 py-1 rounded-full font-display uppercase tracking-wider">
                         Service
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-ink mb-3">
+                    <h3 className="font-display text-2xl sm:text-3xl font-black text-[#0A0A0A] mb-3">
                       {service.name}
                     </h3>
 
-                    <p className="text-muted leading-relaxed font-body mb-6">
+                    <p className="text-[#6B6B6B] leading-relaxed font-display mb-6">
                       {service.description}
                     </p>
 
@@ -228,21 +232,9 @@ export default function Services() {
                       {service.benefits.map((benefit) => (
                         <li
                           key={benefit}
-                          className="flex items-start gap-3 text-sm text-ink/80 font-body"
+                          className="flex items-start gap-3 text-sm text-[#0A0A0A]/80 font-display"
                         >
-                          <svg
-                            className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="m4.5 12.75 6 6 9-13.5"
-                            />
-                          </svg>
+                          <span className="text-[#DC2626] font-bold mt-0.5">—</span>
                           {benefit}
                         </li>
                       ))}
@@ -252,27 +244,30 @@ export default function Services() {
                       href="https://tally.so/r/PdzRxb"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-ink text-white font-display font-semibold px-6 py-3 rounded-full text-sm hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98] self-start"
+                      className="bg-[#0A0A0A] text-white font-display font-semibold px-6 py-3 rounded-full text-sm hover:bg-[#1a1a1a] transition btn-press self-start"
                     >
                       Get Started
                     </a>
                   </div>
                 </div>
-              </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-20 px-6 bg-cream">
+      {/* Social Proof — dark */}
+      <section className="py-20 px-6 bg-[#08080E] dot-grid">
         <div className="max-w-5xl mx-auto">
-          <AnimateIn>
-            <p className="text-sm text-muted text-center font-body uppercase tracking-widest mb-10">
-              Trusted by forward-thinking brands
-            </p>
-          </AnimateIn>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
+            className="text-sm text-white/40 text-center font-display uppercase tracking-widest mb-10"
+          >
+            Trusted by forward-thinking brands
+          </motion.p>
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {clients.map((client, i) => (
@@ -280,14 +275,18 @@ export default function Services() {
                 key={client.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-[20px] border border-border p-8 text-center hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300"
+                className="rounded-2xl p-8 text-center"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
               >
-                <span className="font-display text-2xl font-extrabold text-ink">
+                <span className="font-display text-2xl font-black text-white">
                   {client.name}
                 </span>
-                <p className="text-sm text-muted font-body mt-2">
+                <p className="text-sm text-white/40 font-display mt-2">
                   {client.type}
                 </p>
               </motion.div>
@@ -296,20 +295,24 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="relative py-24 px-6 bg-cream overflow-hidden">
-        {/* Gradient blobs */}
-        <div className="gradient-blob w-[400px] h-[400px] bg-[radial-gradient(circle,_#7C3AED_0%,_#3B82F6_50%,_transparent_70%)] top-[-10%] right-[10%] opacity-25 animate-blob-float" />
-        <div className="gradient-blob w-[350px] h-[350px] bg-[radial-gradient(circle,_#A855F7_0%,_#7C3AED_50%,_transparent_70%)] bottom-[-10%] left-[5%] opacity-20 animate-blob-float-delay" />
-        <div className="gradient-blob w-[250px] h-[250px] bg-[radial-gradient(circle,_#3B82F6_0%,_#A855F7_50%,_transparent_70%)] top-[50%] left-[50%] opacity-15 animate-blob-pulse" />
-
+      {/* Bottom CTA — light */}
+      <section className="relative py-24 px-6 noise-light overflow-hidden" style={{ background: "#EBEBEB" }}>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <AnimateIn>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink mb-4">
-              Ready to{" "}
-              <span className="font-serif italic font-normal">build?</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center justify-center gap-2">
+              <span className="w-6 h-px bg-[#DC2626]" />
+              Let&apos;s Build
+              <span className="w-6 h-px bg-[#DC2626]" />
+            </p>
+            <h2 className="text-[#0A0A0A] font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4">
+              Ready to <span className="text-[#DC2626]">build?</span>
             </h2>
-            <p className="text-muted text-lg max-w-xl mx-auto mb-10 font-body">
+            <p className="text-[#6B6B6B] text-lg max-w-xl mx-auto mb-10 font-display">
               Stop watching your competitors automate. Book a free strategy call
               and let&apos;s build something that works while you sleep.
             </p>
@@ -317,11 +320,11 @@ export default function Services() {
               href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block btn-gradient btn-glow text-white font-display font-semibold px-10 py-4 rounded-full text-lg transition hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-block bg-[#DC2626] text-white font-display font-semibold px-10 py-4 rounded-full text-lg hover:bg-[#B91C1C] transition btn-press"
             >
               Book a Free Strategy Call
             </a>
-          </AnimateIn>
+          </motion.div>
         </div>
       </section>
     </>
