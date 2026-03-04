@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Times New Roman as the serif/italic accent — system font, zero load time */
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+}
+
 * {
   scroll-behavior: smooth;
 }
@@ -246,6 +251,17 @@ body {
 }
 .avatar-counter-rotate {
   animation: counter-rotate 20s linear infinite;
+}
+
+/* ============================================
+   BUTTON GLOW
+   ============================================ */
+.btn-glow {
+  box-shadow: 0 0 20px rgba(217,119,6,0.4), 0 0 60px rgba(217,119,6,0.15);
+  transition: box-shadow 0.3s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(217,119,6,0.6), 0 0 80px rgba(217,119,6,0.25), 0 0 120px rgba(155,28,28,0.15);
 }
 
 /* ============================================
