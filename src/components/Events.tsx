@@ -29,6 +29,12 @@ export default function Events() {
     <section id="events" className="py-24 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <AnimateIn>
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-4">
+              <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
+              Events
+            </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
             Real events.{" "}
             <span className="font-serif italic font-bold">Real people.</span>
