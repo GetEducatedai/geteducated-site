@@ -27,7 +27,8 @@ export default function FoundingMember() {
             <div className="gradient-blob w-[250px] h-[250px] bg-[radial-gradient(circle,_#3B82F6_0%,_#A855F7_50%,_transparent_70%)] top-[40%] left-[50%] opacity-10 animate-blob-pulse" />
 
             <div className="relative z-10 text-center">
-              <span className="inline-block text-sm font-bold text-violet uppercase tracking-widest mb-4 font-display">
+              <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-4">
+                <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
                 Limited
               </span>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-ink">
@@ -49,7 +50,7 @@ export default function FoundingMember() {
                     animate={{ opacity: 1, y: 0 }}
                     className="inline-flex items-center gap-2 bg-white border border-border rounded-full px-6 py-3 shadow-sm"
                   >
-                    <svg className="w-5 h-5 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="font-display font-semibold text-ink">You&apos;re in. Check your email.</span>
@@ -68,11 +69,11 @@ export default function FoundingMember() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
                       required
-                      className="flex-1 bg-white border border-border rounded-full px-5 py-3.5 text-ink placeholder:text-muted/50 focus:outline-none focus:border-violet/50 transition font-body shadow-sm"
+                      className="flex-1 bg-white border border-border rounded-full px-5 py-3.5 text-ink placeholder:text-muted/50 focus:outline-none focus:border-[#D97706]/50 transition font-body shadow-sm"
                     />
                     <button
                       type="submit"
-                      className="bg-ink text-white font-display font-semibold px-8 py-3.5 rounded-full hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                      className="btn-gradient btn-glow text-white font-display font-semibold px-8 py-3.5 rounded-full transition hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
                     >
                       Claim Your Spot
                     </button>

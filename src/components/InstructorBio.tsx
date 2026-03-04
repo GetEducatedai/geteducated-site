@@ -67,7 +67,8 @@ export default function InstructorBio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <span className="inline-block text-sm font-semibold text-violet uppercase tracking-widest mb-4 font-display">
+            <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-4">
+              <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
               Founder
             </span>
             <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-ink mb-2">

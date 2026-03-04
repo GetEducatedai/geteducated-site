@@ -112,8 +112,8 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white border border-border rounded-full px-4 py-1.5 text-sm text-muted mb-8 shadow-sm">
-              <span className="w-2 h-2 bg-violet rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-8">
+              <span className="w-2 h-2 bg-[#9B1C1C] rounded-full animate-pulse" />
               Now accepting new clients
             </div>
           </motion.div>
@@ -152,7 +152,7 @@ export default function Services() {
               href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-ink text-white font-display font-semibold px-8 py-4 rounded-full text-lg hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98]"
+              className="btn-gradient btn-glow text-white font-display font-semibold px-8 py-4 rounded-full text-lg transition hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a Free Strategy Call
             </a>
@@ -188,7 +188,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative rounded-[20px] border border-border bg-cream overflow-hidden hover:shadow-lg hover:shadow-violet/5 transition-all duration-300"
+                className="group relative rounded-[20px] border border-border bg-cream overflow-hidden hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300"
               >
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image */}
@@ -208,10 +208,10 @@ export default function Services() {
                   {/* Content */}
                   <div className="p-8 sm:p-10 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-violet/10 text-violet flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-[#D97706]/10 text-[#D97706] flex items-center justify-center">
                         {service.icon}
                       </div>
-                      <span className="text-xs font-semibold text-violet bg-violet/10 px-3 py-1 rounded-full font-display uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-[#D97706] bg-[#D97706]/10 px-3 py-1 rounded-full font-display uppercase tracking-wider">
                         Service
                       </span>
                     </div>
@@ -231,7 +231,7 @@ export default function Services() {
                           className="flex items-start gap-3 text-sm text-ink/80 font-body"
                         >
                           <svg
-                            className="w-5 h-5 text-violet shrink-0 mt-0.5"
+                            className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={2}
@@ -281,7 +281,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-[20px] border border-border p-8 text-center hover:shadow-lg hover:shadow-violet/5 transition-all duration-300"
+                className="bg-white rounded-[20px] border border-border p-8 text-center hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300"
               >
                 <span className="font-display text-2xl font-extrabold text-ink">
                   {client.name}
@@ -316,7 +316,7 @@ export default function Services() {
               href="https://tally.so/r/PdzRxb"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-ink text-white font-display font-semibold px-10 py-4 rounded-full text-lg hover:opacity-90 transition hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-block btn-gradient btn-glow text-white font-display font-semibold px-10 py-4 rounded-full text-lg transition hover:scale-[1.02] active:scale-[0.98]"
             >
               Book a Free Strategy Call
             </a>

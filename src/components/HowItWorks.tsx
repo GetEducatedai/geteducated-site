@@ -28,11 +28,11 @@ const steps = [
     visual: (
       <div className="mt-4 bg-cream rounded-xl p-3 border border-border">
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-6 h-6 rounded-full bg-violet/20" />
+          <div className="w-6 h-6 rounded-full bg-[#D97706]/20" />
           <span className="text-xs font-display font-semibold text-ink">@builder</span>
           <span className="text-xs text-muted">just shipped</span>
         </div>
-        <div className="h-2 bg-violet/20 rounded-full w-3/4" />
+        <div className="h-2 bg-[#D97706]/20 rounded-full w-3/4" />
         <div className="h-2 bg-[#D97706]/10 rounded-full w-1/2 mt-1.5" />
       </div>
     ),
@@ -60,6 +60,12 @@ export default function HowItWorks() {
     <section className="py-24 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <AnimateIn>
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-4">
+              <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
+              How It Works
+            </span>
+          </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
             Your journey{" "}
             <span className="font-serif italic font-bold">starts here</span>

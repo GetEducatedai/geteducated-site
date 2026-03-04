@@ -69,8 +69,8 @@ export default function WhyDifferent() {
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 bg-white text-ink text-xs font-semibold px-4 py-2 rounded-full border border-border shadow-sm font-body">
-              <span className="w-2 h-2 rounded-full bg-red-500 inline-block" />
+            <span className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display">
+              <span className="w-1.5 h-1.5 bg-[#9B1C1C] rounded-full" />
               Why Us
             </span>
           </div>
@@ -159,7 +159,7 @@ export default function WhyDifferent() {
           <div className="flex justify-center mt-12">
             <a
               href="#pricing"
-              className="bg-ink text-white text-sm font-semibold px-8 py-3.5 rounded-full hover:opacity-90 transition font-display btn-press"
+              className="btn-gradient btn-glow text-white text-sm font-semibold px-8 py-3.5 rounded-full transition font-display btn-press"
             >
               Join Community
             </a>

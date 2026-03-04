@@ -7,7 +7,9 @@ import AnimateIn from "./AnimateIn";
 const plans = [
   {
     name: "Members",
-    quarterlyPrice: 97,
+    monthlyPrice: 97,
+    annualPrice: 67,
+    savingsPercent: 31,
     description: "For creators ready to learn and build with AI.",
     features: [
       "Full community access",
@@ -18,13 +20,12 @@ const plans = [
     ],
     cta: "Join as Member",
     popular: false,
-    accent: "violet",
-    gradient: "from-violet/20 via-blue/10 to-transparent",
-    borderGlow: "hover:shadow-violet/10",
   },
   {
     name: "Architects",
-    quarterlyPrice: 199,
+    monthlyPrice: 199,
+    annualPrice: 139,
+    savingsPercent: 30,
     description: "For builders ready to lead and scale.",
     features: [
       "Everything in Members",
@@ -36,9 +37,6 @@ const plans = [
     ],
     cta: "Join as Architect",
     popular: true,
-    accent: "purple",
-    gradient: "from-purple/20 via-violet/10 to-transparent",
-    borderGlow: "hover:shadow-purple/15",
   },
 ];
 
@@ -46,51 +44,92 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 px-6 bg-cream">
-      <div className="max-w-5xl mx-auto">
+    <section
+      id="pricing"
+      className="relative py-24 px-6 overflow-hidden"
+      style={{ backgroundColor: "#080808" }}
+    >
+      {/* Conic orbs */}
+      <div
+        className="conic-orb w-[600px] h-[600px] top-[-150px] left-[-200px] opacity-30"
+        style={{
+          background:
+            "conic-gradient(from var(--orb-angle), #D97706 0%, #9B1C1C 33%, #5B21B6 66%, #D97706 100%)",
+        }}
+      />
+      <div
+        className="conic-orb-slow w-[500px] h-[500px] bottom-[-100px] right-[-150px] opacity-20"
+        style={{
+          background:
+            "conic-gradient(from var(--orb-angle), #5B21B6 0%, #D97706 33%, #9B1C1C 66%, #5B21B6 100%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-ink">
+          {/* Urgency banner */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center gap-2 bg-[#9B1C1C]/15 text-[#9B1C1C] border border-[#9B1C1C]/30 rounded-full px-4 py-1.5 text-xs font-semibold font-display mb-8">
+              <span className="w-2 h-2 bg-[#9B1C1C] rounded-full animate-pulse" />
+              Only 12 founding member spots left this quarter — price increases
+              next month
+            </div>
+          </div>
+
+          {/* Headline */}
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-4 text-white">
             Simple{" "}
             <span className="font-serif italic font-bold">pricing</span>
           </h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-10 font-body">
+          <p className="text-white/60 text-center max-w-xl mx-auto mb-10 font-display">
             No hidden fees. No upsells. Cancel anytime.
           </p>
 
           {/* Toggle */}
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <span
-              className={`text-sm font-display ${!annual ? "text-ink font-semibold" : "text-muted"}`}
-            >
-              Quarterly
-            </span>
-            <button
-              onClick={() => setAnnual(!annual)}
-              className="relative w-14 h-7 bg-border rounded-full transition-colors"
-              aria-label="Toggle billing period"
-            >
-              <motion.div
-                className="absolute top-1 w-5 h-5 bg-ink rounded-full"
-                animate={{ left: annual ? "calc(100% - 24px)" : "4px" }}
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              />
-            </button>
-            <span
-              className={`text-sm font-display ${annual ? "text-ink font-semibold" : "text-muted"}`}
-            >
-              Annual{" "}
-              <span className="text-violet text-xs font-semibold">
-                Save 20%
+          <div className="flex justify-center mb-16">
+            <div className="relative">
+              <button
+                onClick={() => setAnnual(!annual)}
+                className="relative w-[200px] bg-white/10 rounded-full p-1 h-12 flex items-center"
+                aria-label="Toggle billing period"
+              >
+                {/* Animated slider */}
+                <motion.div
+                  className="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-full"
+                  animate={{ left: annual ? "calc(50% + 2px)" : "4px" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+
+                {/* Labels */}
+                <span
+                  className={`relative z-10 flex-1 text-center text-sm font-display font-semibold transition-colors ${
+                    !annual ? "text-[#0D0D0D]" : "text-white/60"
+                  }`}
+                >
+                  Monthly
+                </span>
+                <span
+                  className={`relative z-10 flex-1 text-center text-sm font-display font-semibold transition-colors ${
+                    annual ? "text-[#0D0D0D]" : "text-white/60"
+                  }`}
+                >
+                  Annual
+                </span>
+              </button>
+
+              {/* 2 months FREE badge */}
+              <span className="absolute top-[-8px] right-[-10px] bg-[#D97706] text-white text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
+                2 months FREE
               </span>
-            </span>
+            </div>
           </div>
         </AnimateIn>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {plans.map((plan, i) => {
-            const price = annual
-              ? Math.round(plan.quarterlyPrice * 0.8)
-              : plan.quarterlyPrice;
+            const price = annual ? plan.annualPrice : plan.monthlyPrice;
+
             return (
               <motion.div
                 key={plan.name}
@@ -98,74 +137,65 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className={`relative rounded-[24px] p-[1px] group ${
-                  plan.popular
-                    ? "bg-gradient-to-br from-violet via-purple to-blue"
-                    : "bg-border"
-                }`}
               >
-                {/* Glow effect */}
-                <div
-                  className={`absolute -inset-1 rounded-[26px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${
-                    plan.popular
-                      ? "bg-gradient-to-br from-violet/30 via-purple/20 to-blue/30"
-                      : "bg-violet/10"
-                  }`}
-                />
+                {plan.popular ? (
+                  /* Featured card - gradient border trick */
+                  <div
+                    className="rounded-[24px] p-[1.5px] bg-gradient-to-br from-[#D97706] via-[#9B1C1C] to-[#5B21B6] relative"
+                    style={{
+                      boxShadow: "0 0 60px rgba(217,119,6,0.25)",
+                    }}
+                  >
+                    <div className="bg-[#0D0D0D] rounded-[23px] p-8 relative">
+                      {/* Most Popular badge */}
+                      <span className="absolute top-4 right-4 bg-[#D97706] text-white text-xs font-bold px-3 py-1 rounded-full font-display z-10">
+                        Most Popular
+                      </span>
 
-                <div className="relative rounded-[23px] bg-white p-8 sm:p-10 h-full overflow-hidden">
-                  {/* Background gradient accent */}
-                  <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${plan.gradient} opacity-50 blur-3xl pointer-events-none`} />
+                      {/* Plan name */}
+                      <h3 className="font-display text-2xl font-bold text-white mb-1">
+                        {plan.name}
+                      </h3>
 
-                  {plan.popular && (
-                    <span className="absolute -top-px left-8 bg-gradient-to-r from-violet to-purple text-white text-xs font-bold px-5 py-1.5 rounded-b-lg font-display shadow-lg shadow-violet/20">
-                      Most Popular
-                    </span>
-                  )}
+                      {/* Description */}
+                      <p className="text-white/50 text-sm mb-6">
+                        {plan.description}
+                      </p>
 
-                  <div className="relative z-10">
-                    {/* Floating icon */}
-                    <div className={`w-12 h-12 rounded-2xl mb-6 flex items-center justify-center ${
-                      plan.popular
-                        ? "bg-gradient-to-br from-violet to-purple"
-                        : "bg-cream"
-                    }`}>
-                      {plan.popular ? (
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-                        </svg>
-                      ) : (
-                        <svg className="w-6 h-6 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                        </svg>
-                      )}
-                    </div>
+                      {/* Price */}
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <motion.span
+                          key={price}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="font-display text-5xl font-extrabold text-white"
+                        >
+                          ${price}
+                        </motion.span>
+                        <span className="text-white/40 text-sm">/mo</span>
+                      </div>
 
-                    <h3 className="font-display text-2xl font-bold mb-1 text-ink">
-                      {plan.name}
-                    </h3>
-                    <p className="text-muted text-sm mb-6 font-body">
-                      {plan.description}
-                    </p>
-                    <div className="flex items-baseline gap-1 mb-8">
-                      <motion.span
-                        key={price}
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="font-display text-5xl font-extrabold text-ink"
-                      >
-                        ${price}
-                      </motion.span>
-                      <span className="text-muted text-sm font-body">/mo</span>
-                    </div>
-                    <ul className="space-y-3 mb-8">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex items-center gap-3 text-sm">
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                            plan.popular ? "bg-violet/10" : "bg-cream"
-                          }`}>
+                      {/* Billing info */}
+                      <div className="flex items-center gap-2 mb-8">
+                        <span className="text-white/30 text-xs">
+                          {annual ? "billed annually" : "billed quarterly"}
+                        </span>
+                        {annual && (
+                          <span className="text-[#D97706] text-xs font-semibold">
+                            Save {plan.savingsPercent}%
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Features */}
+                      <ul className="space-y-3 mb-8">
+                        {plan.features.map((f) => (
+                          <li
+                            key={f}
+                            className="flex items-center gap-3 text-sm"
+                          >
                             <svg
-                              className={`w-3 h-3 ${plan.popular ? "text-violet" : "text-ink"}`}
+                              className="w-4 h-4 flex-shrink-0 text-[#D97706]"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -177,37 +207,148 @@ export default function Pricing() {
                                 d="M5 13l4 4L19 7"
                               />
                             </svg>
-                          </div>
-                          <span className="text-muted font-body">{f}</span>
+                            <span className="text-white/70">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA */}
+                      <a
+                        href="https://go.geteducated.ai"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-gradient btn-glow rounded-full px-6 py-4 text-white font-display font-semibold w-full text-center block"
+                      >
+                        {plan.cta}
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  /* Regular card */
+                  <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[24px] p-8 h-full relative">
+                    {/* Plan name */}
+                    <h3 className="font-display text-2xl font-bold text-white mb-1">
+                      {plan.name}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-white/50 text-sm mb-6">
+                      {plan.description}
+                    </p>
+
+                    {/* Price */}
+                    <div className="flex items-baseline gap-1 mb-1">
+                      <motion.span
+                        key={price}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="font-display text-5xl font-extrabold text-white"
+                      >
+                        ${price}
+                      </motion.span>
+                      <span className="text-white/40 text-sm">/mo</span>
+                    </div>
+
+                    {/* Billing info */}
+                    <div className="flex items-center gap-2 mb-8">
+                      <span className="text-white/30 text-xs">
+                        {annual ? "billed annually" : "billed quarterly"}
+                      </span>
+                      {annual && (
+                        <span className="text-[#D97706] text-xs font-semibold">
+                          Save {plan.savingsPercent}%
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((f) => (
+                        <li
+                          key={f}
+                          className="flex items-center gap-3 text-sm"
+                        >
+                          <svg
+                            className="w-4 h-4 flex-shrink-0 text-white/40"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={3}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                          <span className="text-white/70">{f}</span>
                         </li>
                       ))}
                     </ul>
+
+                    {/* CTA */}
                     <a
                       href="https://go.geteducated.ai"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block text-center font-display font-semibold px-6 py-4 rounded-full transition btn-press ${
-                        plan.popular
-                          ? "bg-gradient-to-r from-violet to-purple text-white hover:opacity-90 shadow-lg shadow-violet/20"
-                          : "border border-ink/20 text-ink hover:bg-ink hover:text-white"
-                      }`}
+                      className="border border-white/20 text-white rounded-full px-6 py-4 font-display font-semibold hover:bg-white/10 transition w-full text-center block"
                     >
                       {plan.cta}
                     </a>
                   </div>
-                </div>
+                )}
               </motion.div>
             );
           })}
         </div>
 
+        {/* FOMO */}
         <AnimateIn>
           <div className="flex justify-center mt-8">
-            <div className="inline-flex items-center gap-2 bg-white border border-border rounded-full px-4 py-2 text-sm text-muted shadow-sm font-body">
-              <svg className="w-4 h-4 text-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2.5">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="text-white/60 text-sm font-display">
+                3 people joined in the last 24 hours
+              </span>
+              <div className="flex -space-x-2">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=48&h=48&fit=crop&crop=face"
+                  alt=""
+                  className="w-6 h-6 rounded-full border border-white/20 object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face"
+                  alt=""
+                  className="w-6 h-6 rounded-full border border-white/20 object-cover"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&h=48&fit=crop&crop=face"
+                  alt=""
+                  className="w-6 h-6 rounded-full border border-white/20 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimateIn>
+
+        {/* Guarantee badge */}
+        <AnimateIn>
+          <div className="flex justify-center mt-4">
+            <div className="inline-flex items-center gap-2 text-white/40 text-sm font-display">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
               </svg>
-              7-day money-back guarantee. No questions asked.
+              30-day money-back guarantee
             </div>
           </div>
         </AnimateIn>
