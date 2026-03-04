@@ -12,7 +12,7 @@ body {
 }
 
 ::selection {
-  background: #7C3AED;
+  background: #D97706;
   color: #FFFFFF;
 }
 
@@ -28,7 +28,7 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: #D97706;
 }
 
 /* Hide scrollbar for horizontal scroll areas */
@@ -55,8 +55,13 @@ body {
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.15); }
-  50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(217, 119, 6, 0.2), 0 0 40px rgba(155, 28, 28, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(217, 119, 6, 0.4), 0 0 80px rgba(155, 28, 28, 0.2); }
+}
+
+@keyframes glow-pulse-amber {
+  0%, 100% { box-shadow: 0 0 20px rgba(217, 119, 6, 0.25); }
+  50% { box-shadow: 0 0 50px rgba(217, 119, 6, 0.5), 0 0 80px rgba(155, 28, 28, 0.2); }
 }
 
 @keyframes draw-line {
@@ -69,12 +74,22 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .animate-float-subtle {
   animation: float-subtle 3s ease-in-out infinite;
 }
 
 .animate-glow-pulse {
   animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse-amber {
+  animation: glow-pulse-amber 3s ease-in-out infinite;
 }
 
 /* Button press effect */
@@ -141,7 +156,7 @@ body {
   0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
   10%  { opacity: 0.7; }
   85%  { opacity: 0.25; }
-  100% { transform: translateY(-100vh) translateX(20px) scale(0.4); opacity: 0; }
+  100% { transform: translateY(-120vh) translateX(20px) scale(0.4); opacity: 0; }
 }
 
 .particle {
@@ -168,6 +183,15 @@ body {
   background-clip: text;
 }
 
+.gradient-text-animated {
+  background: linear-gradient(135deg, #D97706, #9B1C1C, #5B21B6, #D97706);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
 /* ============================================
    GRADIENT BUTTON
    ============================================ */
@@ -186,6 +210,15 @@ body {
 }
 
 /* ============================================
+   GRADIENT BORDER WRAPPER
+   ============================================ */
+.gradient-border {
+  background: linear-gradient(135deg, #D97706, #9B1C1C, #5B21B6);
+  padding: 1px;
+  border-radius: 20px;
+}
+
+/* ============================================
    CARD HOVER LIFT
    ============================================ */
 .card-lift {
@@ -194,4 +227,38 @@ body {
 .card-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   ROTATING AVATAR CIRCLE
+   ============================================ */
+@keyframes rotate-circle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes counter-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.avatar-orbit {
+  animation: rotate-circle 20s linear infinite;
+}
+.avatar-counter-rotate {
+  animation: counter-rotate 20s linear infinite;
+}
+
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.faq-answer.open {
+  grid-template-rows: 1fr;
+}
+.faq-answer > div {
+  overflow: hidden;
 }

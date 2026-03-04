@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
@@ -20,12 +20,26 @@ const mobileLinks = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10"
-      style={{ backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", background: "rgba(0,0,0,0.65)" }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        backdropFilter: scrolled ? "blur(24px) saturate(180%)" : "blur(12px)",
+        WebkitBackdropFilter: scrolled ? "blur(24px) saturate(180%)" : "blur(12px)",
+        background: scrolled ? "rgba(0,0,0,0.80)" : "rgba(0,0,0,0.30)",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}

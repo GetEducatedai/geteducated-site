@@ -13,11 +13,11 @@ const steps = [
     visual: (
       <div className="flex flex-wrap gap-2 mt-4">
         {["OpenAI", "Claude", "Midjourney", "Runway"].map((t) => (
-          <span key={t} className="text-xs bg-violet/10 text-violet px-3 py-1 rounded-full font-display font-semibold">{t}</span>
+          <span key={t} className="text-xs bg-[#D97706]/10 text-[#D97706] px-3 py-1 rounded-full font-display font-semibold">{t}</span>
         ))}
       </div>
     ),
-    accent: "from-violet to-blue",
+    accent: "from-[#D97706] to-[#9B1C1C]",
   },
   {
     num: "02",
@@ -33,10 +33,10 @@ const steps = [
           <span className="text-xs text-muted">just shipped</span>
         </div>
         <div className="h-2 bg-violet/20 rounded-full w-3/4" />
-        <div className="h-2 bg-violet/10 rounded-full w-1/2 mt-1.5" />
+        <div className="h-2 bg-[#D97706]/10 rounded-full w-1/2 mt-1.5" />
       </div>
     ),
-    accent: "from-purple to-violet",
+    accent: "from-[#9B1C1C] to-[#5B21B6]",
   },
   {
     num: "03",
@@ -45,20 +45,13 @@ const steps = [
     description:
       "Become the expert in your space. Teach others. Build your brand. Create the life and income you actually want.",
     visual: (
-      <div className="mt-4 flex items-end gap-2 h-16">
-        {[40, 55, 45, 65, 80, 70, 95].map((h, i) => (
-          <motion.div
-            key={i}
-            className="flex-1 bg-gradient-to-t from-violet to-purple rounded-t-md"
-            initial={{ height: 0 }}
-            whileInView={{ height: `${h}%` }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.8 + i * 0.08 }}
-          />
+      <div className="mt-4 flex flex-wrap gap-2">
+        {["Coach", "Consultant", "Creator", "Founder"].map((t) => (
+          <span key={t} className="text-xs bg-[#D97706]/10 text-[#D97706] px-3 py-1 rounded-full font-display font-semibold border border-[#D97706]/20">{t}</span>
         ))}
       </div>
     ),
-    accent: "from-blue to-purple",
+    accent: "from-[#5B21B6] to-[#D97706]",
   },
 ];
 
@@ -81,7 +74,7 @@ export default function HowItWorks() {
           {/* Connecting line - desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
             <motion.div
-              className="w-full bg-gradient-to-b from-violet via-purple to-blue"
+              className="w-full bg-gradient-to-b from-[#D97706] via-[#9B1C1C] to-[#5B21B6]"
               initial={{ height: "0%" }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true }}
@@ -115,7 +108,7 @@ export default function HowItWorks() {
                 {/* Content card */}
                 <div className={`md:w-[calc(50%-3rem)] ${i % 2 === 0 ? "md:text-right" : ""}`}>
                   <motion.div
-                    className="bg-white rounded-[20px] border border-border p-8 shadow-sm hover:shadow-lg hover:shadow-violet/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
+                    className="bg-white rounded-[20px] border border-border p-8 shadow-sm hover:shadow-lg hover:shadow-[#D97706]/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
                     whileHover={{ scale: 1.01 }}
                   >
                     {/* Glow accent on hover */}
@@ -129,7 +122,7 @@ export default function HowItWorks() {
                       <h3 className="font-display text-2xl font-bold text-ink mb-1">
                         {step.title}
                       </h3>
-                      <p className="font-display text-sm font-semibold text-violet mb-3">
+                      <p className="font-display text-sm font-semibold text-[#D97706] mb-3">
                         {step.subtitle}
                       </p>
                       <p className="text-muted text-sm leading-relaxed font-body">
