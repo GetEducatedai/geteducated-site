@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimateIn from "./AnimateIn";
+import TiltCard from "./TiltCard";
 
 const plans = [
   {
@@ -138,6 +139,7 @@ export default function Pricing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
               >
+                <TiltCard>
                 {plan.popular ? (
                   /* Featured card - gradient border trick */
                   <div
@@ -297,6 +299,7 @@ export default function Pricing() {
                     </a>
                   </div>
                 )}
+                </TiltCard>
               </motion.div>
             );
           })}

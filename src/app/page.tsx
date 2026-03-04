@@ -1,8 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
+
 import BentoGrid from "@/components/BentoGrid";
 import WhyDifferent from "@/components/WhyDifferent";
+import TestimonialMarquee from "@/components/TestimonialMarquee";
 import HowItWorks from "@/components/HowItWorks";
 import Masterclass from "@/components/Masterclass";
 import Courses from "@/components/Courses";
@@ -19,9 +20,9 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Marquee />
         <BentoGrid />
         <WhyDifferent />
+        <TestimonialMarquee />
         <HowItWorks />
         <Masterclass />
         <Courses />

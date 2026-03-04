@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import ProgressBar from "@/components/ProgressBar";
+import StickyCTA from "@/components/StickyCTA";
+import ActivityFeed from "@/components/ActivityFeed";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -32,7 +36,12 @@ export default function RootLayout({
       className={`${instrumentSans.variable}`}
     >
       <body className="font-display antialiased bg-cream text-ink overflow-x-hidden">
-        {children}
+        <ProgressBar />
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+        <StickyCTA />
+        <ActivityFeed />
       </body>
     </html>
   );

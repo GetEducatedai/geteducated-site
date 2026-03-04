@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
+import TiltCard from "./TiltCard";
 
 const services = [
   {
@@ -188,8 +189,8 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative rounded-[20px] border border-border bg-cream overflow-hidden hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300"
               >
+              <TiltCard className="group relative rounded-[20px] border border-border bg-cream overflow-hidden hover:shadow-lg hover:shadow-[#D97706]/5 transition-all duration-300">
                 <div className="grid md:grid-cols-2 gap-0">
                   {/* Image */}
                   <div
@@ -258,6 +259,7 @@ export default function Services() {
                     </a>
                   </div>
                 </div>
+              </TiltCard>
               </motion.div>
             ))}
           </div>
