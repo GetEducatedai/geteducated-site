@@ -1,73 +1,56 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const members = [
-  { name: 'Sarah M.', city: 'Dubai' },
-  { name: 'Marcus T.', city: 'London' },
-  { name: 'Priya K.', city: 'Singapore' },
-  { name: 'Alex R.', city: 'New York' },
-  { name: 'Luna B.', city: 'Paris' },
-  { name: 'David C.', city: 'Toronto' },
-  { name: 'Maya S.', city: 'Sydney' },
-  { name: 'James L.', city: 'Lagos' },
-];
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ActivityFeed() {
-  const [index, setIndex] = useState(0);
-  const [show, setShow] = useState(true);
+  const [viewers, setViewers] = useState(47);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const cycle = setInterval(() => {
-      setShow(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % members.length);
-        setShow(true);
-      }, 500);
-    }, 6000);
+    // Show after 4 seconds
+    const showTimer = setTimeout(() => setVisible(true), 4000);
 
-    return () => clearInterval(cycle);
+    // Oscillate viewer count realistically every 8–14s
+    const interval = setInterval(() => {
+      setViewers((v) => {
+        const delta = Math.floor(Math.random() * 5) - 2; // -2 to +2
+        return Math.min(62, Math.max(38, v + delta));
+      });
+    }, 9000);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearInterval(interval);
+    };
   }, []);
 
-  useEffect(() => {
-    if (show) {
-      const hideTimer = setTimeout(() => setShow(false), 4000);
-      return () => clearTimeout(hideTimer);
-    }
-  }, [show, index]);
-
-  const member = members[index];
-
   return (
-    <div className="fixed bottom-20 left-4 z-30 hidden lg:block">
-      <AnimatePresence>
-        {show && (
-          <motion.div
-            key={index}
-            initial={{ x: -80, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -80, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="bg-black/80 backdrop-blur border border-white/10 rounded-2xl px-4 py-3"
-          >
-            <div className="flex items-center gap-3">
-              {/* Green pulsing dot */}
-              <span className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
-              </span>
-
-              <div>
-                <p className="text-white text-sm font-display">
-                  {member.name} from {member.city} just joined
-                </p>
-                <p className="text-white/40 text-xs">2 min ago</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -60 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="fixed bottom-24 left-4 z-30 hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl"
+          style={{
+            background: "rgba(0,0,0,0.80)",
+            backdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.10)",
+          }}
+        >
+          {/* Pulsing dot */}
+          <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500" />
+          </span>
+          <p className="text-white text-xs font-display whitespace-nowrap">
+            <span className="font-bold text-white">{viewers} people</span>
+            <span className="text-white/60"> viewing this page</span>
+          </p>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
