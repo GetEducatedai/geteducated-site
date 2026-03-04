@@ -1,18 +1,16 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function CTABand() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <section ref={ref} className="relative py-24 px-6 bg-[#08080E] dot-grid">
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-white font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-6"
         >
@@ -21,7 +19,7 @@ export default function CTABand() {
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="text-white/50 text-base mb-10 font-display max-w-lg mx-auto"
         >
@@ -29,7 +27,7 @@ export default function CTABand() {
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >

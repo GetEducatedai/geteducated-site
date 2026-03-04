@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const bullets = [
   "Built by AI creators, for AI creators — not academics",
@@ -20,8 +19,6 @@ const comparisons = [
 ];
 
 export default function WhyDifferent() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
     <section className="relative py-24 px-6 bg-[#08080E] dot-grid overflow-hidden">
@@ -30,7 +27,7 @@ export default function WhyDifferent() {
           {/* Left column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
@@ -53,7 +50,7 @@ export default function WhyDifferent() {
                 <motion.li
                   key={b}
                   initial={{ opacity: 0, x: -10 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.1 }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
                   className="flex items-start gap-3 text-white/70 text-sm font-display"
                 >
@@ -67,7 +64,7 @@ export default function WhyDifferent() {
           {/* Right column — Comparison table */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="rounded-2xl overflow-hidden"
             style={{
@@ -94,7 +91,7 @@ export default function WhyDifferent() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
+                whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
                 className="grid grid-cols-2 border-b border-white/[0.06] last:border-b-0"
               >

@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const cards = [
   {
@@ -55,13 +54,12 @@ function BentoCard({
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
       className="group relative bg-white rounded-2xl p-8 transition-all duration-300 overflow-hidden"
       style={{ border: "1px solid var(--light-border)" }}
@@ -87,8 +85,6 @@ function BentoCard({
 }
 
 export default function BentoGrid() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
     <section className="relative py-24 px-6 noise-light" style={{ background: "#EBEBEB" }}>
@@ -96,7 +92,7 @@ export default function BentoGrid() {
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16"
         >

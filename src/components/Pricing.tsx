@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const plans = [
   {
@@ -41,8 +41,6 @@ const plans = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -54,7 +52,7 @@ export default function Pricing() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-12"
         >
@@ -74,7 +72,7 @@ export default function Pricing() {
         {/* Toggle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="flex justify-center mb-14"
         >
@@ -117,7 +115,7 @@ export default function Pricing() {
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 25 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
                 className={`bg-white rounded-2xl p-8 relative ${
                   plan.popular
@@ -211,7 +209,7 @@ export default function Pricing() {
         {/* Guarantee */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex justify-center mt-8"
         >
