@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 /* ─────────────────────────────────────────────
    BRAND TOKENS — Locked March 2026
@@ -683,47 +684,102 @@ export default function BrandKit() {
             <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>System</span>
           </SectionTitle>
 
-          {/* Logo usage table */}
-          <div
-            className="rounded-2xl overflow-hidden mb-12"
-            style={{ border: `1px solid ${COLORS.borderLight}`, background: COLORS.white }}
-          >
+          {/* Usage rule */}
+          <div className="rounded-2xl p-5 mb-12" style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2 font-display" style={{ color: COLORS.muted }}>Usage Rule</p>
+            <p className="text-sm font-display" style={{ color: COLORS.dark2 }}>
+              One key color anchors every design. Use the logo variant that matches the background — White on dark, Black on light, or the matching color variant on a colored background.
+            </p>
+          </div>
+
+          {/* Full Logos — Wordmark */}
+          <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 font-display" style={{ color: COLORS.muted }}>
+            Full Logo — Wordmark
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
             {[
-              { bg: "Dark / Black sections",  use: "White logo",              file: "GetEducated.AI-Logo-White@8x.png" },
-              { bg: "Light / Cream sections", use: "Black logo",              file: "GetEducated.AI-Logo-Black@8x.png" },
-              { bg: "Bright Sun key color",   use: "Bright Sun logo",         file: "GetEducated.AI-Logo-BrightSun@8x.png" },
-              { bg: "Purple Rush key color",  use: "Purple Rush logo",        file: "GetEducated.AI-Logo-PurpleRush@8x.png" },
-              { bg: "Naval Point key color",  use: "Naval Point logo",        file: "GetEducated.AI-Logo-NavalPoint@8x.png" },
-              { bg: "Teal key color",         use: "Puerto Rico Teal logo",   file: "GetEducated.AI-Logo-PuertoRicoTeal@8x.png" },
-              { bg: "Magenta key color",      use: "Magenta Flirt logo",      file: "GetEducated.AI-Logo-MagentaFlirt@8x.png" },
-              { bg: "Radical Red key color",  use: "Radical Red logo",        file: "GetEducated.AI-Logo-RadicalRed@8x.png" },
-            ].map((row, i) => (
-              <div
-                key={row.file}
-                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 px-6 py-4"
-                style={{ borderTop: i > 0 ? `1px solid ${COLORS.borderLight}` : "none" }}
-              >
-                <span className="text-sm font-display font-semibold w-48 shrink-0" style={{ color: COLORS.dark2 }}>{row.bg}</span>
-                <span className="text-sm font-display w-44 shrink-0" style={{ color: COLORS.muted }}>{row.use}</span>
-                <span className="text-xs font-mono" style={{ color: COLORS.purpleRush }}>{row.file}</span>
+              { bg: COLORS.black,      src: "/logos/logo-white.png",      label: "White",         sub: "Use on all dark / black backgrounds" },
+              { bg: COLORS.cream,      src: "/logos/logo-black.png",      label: "Black",         sub: "Use on all light / cream backgrounds" },
+              { bg: COLORS.brightSun,  src: "/logos/logo-brightsun.png",  label: "Bright Sun",    sub: "When Bright Sun is the key color" },
+              { bg: COLORS.purpleRush, src: "/logos/logo-purplerush.png", label: "Purple Rush",   sub: "When Purple Rush is the key color" },
+              { bg: COLORS.navalPoint, src: "/logos/logo-navalpoint.png", label: "Naval Point",   sub: "When Naval Point is the key color" },
+              { bg: COLORS.puertoRico, src: "/logos/logo-teal.png",       label: "Puerto Rico Teal", sub: "When Teal is the key color" },
+              { bg: COLORS.magentaFlirt, src: "/logos/logo-magenta.png",  label: "Magenta Flirt", sub: "When Magenta is the key color" },
+              { bg: COLORS.radicalRed, src: "/logos/logo-radicalred.png", label: "Radical Red",   sub: "When Radical Red is the key color" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${COLORS.borderLight}` }}>
+                <div
+                  className="relative flex items-center justify-center px-10 py-8"
+                  style={{ background: item.bg, minHeight: 120 }}
+                >
+                  <Image
+                    src={item.src}
+                    alt={`GetEducated.ai Logo — ${item.label}`}
+                    width={320}
+                    height={60}
+                    className="object-contain w-auto"
+                    style={{ maxHeight: 56 }}
+                  />
+                </div>
+                <div className="px-4 py-3" style={{ background: COLORS.white }}>
+                  <p className="text-sm font-display font-bold" style={{ color: COLORS.dark2 }}>{item.label}</p>
+                  <p className="text-xs font-display mt-0.5" style={{ color: COLORS.muted }}>{item.sub}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Logomark note */}
-          <div
-            className="rounded-2xl p-6"
-            style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3 font-display" style={{ color: COLORS.muted }}>
-              Logomark Variants
-            </p>
-            <p className="text-sm font-display" style={{ color: COLORS.dark2 }}>
-              Use <strong>Logomark</strong> (icon only, no wordmark) for favicons, tight spaces, profile images, and watermarks. All color variants available: White, Black, BrightSun, PurpleRush, NavalPoint, PuertoRicoTeal, MagentaFlirt, RadicalRed.
-            </p>
-            <p className="text-xs font-mono mt-3" style={{ color: COLORS.muted }}>
-              Base path: /assets/geteducated-logos/PNG/
-            </p>
+          {/* Logomarks */}
+          <h3 className="text-xs font-semibold uppercase tracking-widest mb-3 font-display" style={{ color: COLORS.muted }}>
+            Logomark — Icon Only
+          </h3>
+          <p className="text-sm font-display mb-6" style={{ color: COLORS.muted }}>
+            Use the logomark for favicons, app icons, profile images, watermarks, and tight spaces where the wordmark won&apos;t fit.
+          </p>
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-3 mb-16">
+            {[
+              { bg: COLORS.black,        src: "/logos/mark-white.png",      label: "White" },
+              { bg: COLORS.cream,        src: "/logos/mark-black.png",      label: "Black" },
+              { bg: COLORS.brightSun,    src: "/logos/mark-brightsun.png",  label: "Sun" },
+              { bg: COLORS.purpleRush,   src: "/logos/mark-purplerush.png", label: "Purple" },
+              { bg: COLORS.navalPoint,   src: "/logos/mark-navalpoint.png", label: "Navy" },
+              { bg: COLORS.puertoRico,   src: "/logos/mark-teal.png",       label: "Teal" },
+              { bg: COLORS.magentaFlirt, src: "/logos/mark-magenta.png",    label: "Magenta" },
+              { bg: COLORS.radicalRed,   src: "/logos/mark-radicalred.png", label: "Red" },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <div
+                  className="rounded-2xl flex items-center justify-center p-3 aspect-square mb-2"
+                  style={{ background: item.bg, border: `1px solid ${COLORS.borderLight}` }}
+                >
+                  <Image
+                    src={item.src}
+                    alt={`GetEducated.ai Logomark — ${item.label}`}
+                    width={60}
+                    height={60}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <p className="text-[10px] font-display font-medium" style={{ color: COLORS.muted }}>{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Clear space rule */}
+          <div className="rounded-2xl p-6" style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3 font-display" style={{ color: COLORS.muted }}>Clear Space & Don&apos;ts</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                "✅  Always maintain clear space equal to the height of the 'G' around the logo",
+                "✅  Scale proportionally — never stretch or squish",
+                "❌  Never place the White logo on a light background",
+                "❌  Never place the Black logo on a dark background",
+                "❌  Never add drop shadows, outlines, or effects to the logo",
+                "❌  Never rotate or alter the logo in any way",
+              ].map((r) => (
+                <p key={r} className="text-sm font-display" style={{ color: COLORS.dark2 }}>{r}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -867,28 +923,100 @@ export default function BrandKit() {
           <Eyebrow>07 — Voice & Copy</Eyebrow>
           <SectionTitle light>
             Voice &{" "}
-            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>Copy</span>
+            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>Tone</span>
           </SectionTitle>
 
+          {/* Brand voice statement */}
+          <div
+            className="rounded-2xl p-8 md:p-10 mb-12"
+            style={{ background: COLORS.navalPoint }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4 font-display" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Our Voice
+            </p>
+            <p className="text-2xl md:text-3xl font-bold font-display text-white leading-snug mb-4">
+              We are the{" "}
+              <span className="font-serif italic font-bold" style={{ color: COLORS.brightSun }}>
+                conscious leaders
+              </span>{" "}
+              of the future.
+            </p>
+            <p className="text-base font-display leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+              Empowering the rebels, the visionaries, and the changemakers who refuse to accept the old way of doing things. We believe AI belongs to those who build with intention — and that sustainable growth and human wellness are not at odds with the future. They are the future.
+            </p>
+          </div>
+
+          {/* Identity pillars */}
+          <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 font-display" style={{ color: COLORS.muted }}>
+            Brand Identity Pillars
+          </h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+            {[
+              {
+                word: "Empowering",
+                color: COLORS.puertoRico,
+                desc: "We build people up with real skills, real tools, real results. Not inspiration porn — actual capability.",
+              },
+              {
+                word: "Rebellious",
+                color: COLORS.radicalRed,
+                desc: "We reject the traditional education model, the hustle-till-you-break mentality, and the gatekeepers of knowledge.",
+              },
+              {
+                word: "Visionary",
+                color: COLORS.purpleRush,
+                desc: "We see where AI is going — and we help our community get there first, with clarity and strategy.",
+              },
+              {
+                word: "Anti-Establishment",
+                color: COLORS.magentaFlirt,
+                desc: "Degrees don't build futures. Execution does. We are the alternative — and we're proud of it.",
+              },
+              {
+                word: "Futurist",
+                color: COLORS.brightSun,
+                desc: "We live in the adjacent possible. Always one step ahead, building the infrastructure for what comes next.",
+              },
+              {
+                word: "Conscious",
+                color: COLORS.navalPoint,
+                desc: "Sustainable growth. Human wellness. We build boldly without burning out — and we teach others to do the same.",
+              },
+            ].map((p) => (
+              <div
+                key={p.word}
+                className="rounded-2xl p-6"
+                style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}
+              >
+                <div className="w-8 h-1 rounded-full mb-4" style={{ background: p.color }} />
+                <p className="font-display font-bold text-lg mb-2" style={{ color: COLORS.dark2 }}>{p.word}</p>
+                <p className="text-sm font-display leading-relaxed" style={{ color: COLORS.muted }}>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
           {/* Do / Don't */}
+          <h3 className="text-xs font-semibold uppercase tracking-widest mb-6 font-display" style={{ color: COLORS.muted }}>
+            In Practice
+          </h3>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div
               className="rounded-2xl p-6"
               style={{ background: "rgba(70,193,164,0.08)", border: "1px solid rgba(70,193,164,0.25)" }}
             >
-              <p className="flex items-center gap-2 font-display font-bold text-sm uppercase tracking-widest mb-4" style={{ color: COLORS.puertoRico }}>
-                ✓ Do
+              <p className="font-display font-bold text-sm uppercase tracking-widest mb-4" style={{ color: COLORS.puertoRico }}>
+                ✓ We say
               </p>
               <ul className="space-y-3">
                 {[
-                  '"Learn. Build. Lead."',
-                  '"Build a profitable business in 30 days"',
-                  '"No credit card required"',
                   '"Stop consuming. Start building."',
                   '"You don\'t need another course. You need infrastructure."',
+                  '"The AI era rewards builders. Are you one?"',
+                  '"Learn. Build. Lead. In that order."',
+                  '"Sustainable success is not optional. It\'s the strategy."',
                 ].map((item) => (
                   <li key={item} className="text-sm font-display flex items-start gap-2" style={{ color: COLORS.dark2 }}>
-                    <span style={{ color: COLORS.puertoRico }}>✓</span>
+                    <span style={{ color: COLORS.puertoRico, flexShrink: 0 }}>✓</span>
                     {item}
                   </li>
                 ))}
@@ -899,19 +1027,19 @@ export default function BrandKit() {
               className="rounded-2xl p-6"
               style={{ background: "rgba(244,54,76,0.06)", border: "1px solid rgba(244,54,76,0.2)" }}
             >
-              <p className="flex items-center gap-2 font-display font-bold text-sm uppercase tracking-widest mb-4" style={{ color: COLORS.radicalRed }}>
-                ✕ Don&apos;t
+              <p className="font-display font-bold text-sm uppercase tracking-widest mb-4" style={{ color: COLORS.radicalRed }}>
+                ✕ We never say
               </p>
               <ul className="space-y-3">
                 {[
                   '"Amazing opportunity!"',
-                  '"Life-changing community"',
+                  '"We\'re so excited to share..."',
                   '"Join our journey"',
-                  '"We\'re so excited to..."',
-                  '"Empowering creators everywhere"',
+                  '"Grind harder. Hustle more."',
+                  '"Empower your potential" (vague, hollow)',
                 ].map((item) => (
                   <li key={item} className="text-sm font-display flex items-start gap-2" style={{ color: COLORS.dark2 }}>
-                    <span style={{ color: COLORS.radicalRed }}>✕</span>
+                    <span style={{ color: COLORS.radicalRed, flexShrink: 0 }}>✕</span>
                     {item}
                   </li>
                 ))}
@@ -924,46 +1052,27 @@ export default function BrandKit() {
             Headline Formula
           </h3>
           <div
-            className="rounded-2xl p-6 md:p-8 mb-10"
+            className="rounded-2xl p-6 md:p-8"
             style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}
           >
             <p className="font-mono text-base md:text-lg mb-4" style={{ color: COLORS.dark2 }}>
-              [Provocative truth] + [Specific result]
+              [Provocative truth] + [Specific result or vision]
             </p>
-            <div style={{ borderTop: `1px solid ${COLORS.borderLight}` }} className="pt-4">
-              <p className="text-xs font-semibold uppercase tracking-widest mb-2 font-display" style={{ color: COLORS.muted }}>Example</p>
-              <p className="text-xl font-display font-bold" style={{ color: COLORS.dark2 }}>
-                &quot;You don&apos;t need another course. You need{" "}
-                <span className="font-serif italic" style={{ color: COLORS.purpleRush }}>infrastructure.</span>
-                &quot;
-              </p>
-            </div>
-          </div>
-
-          {/* Tone pillars */}
-          <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 font-display" style={{ color: COLORS.muted }}>
-            Tone Pillars
-          </h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { word: "Direct",      desc: "Say it once, say it clearly. No padding." },
-              { word: "Specific",    desc: "Results, numbers, timelines — not vibes." },
-              { word: "Provocative", desc: "Challenge the status quo. Make them think." },
-              { word: "Warm",        desc: "Human, not corporate. Founder voice, always." },
-            ].map((p, i) => {
-              const accents = [COLORS.purpleRush, COLORS.brightSun, COLORS.magentaFlirt, COLORS.puertoRico];
-              return (
-                <div
-                  key={p.word}
-                  className="rounded-2xl p-5"
-                  style={{ background: COLORS.white, border: `1px solid ${COLORS.borderLight}` }}
-                >
-                  <div className="w-2 h-2 rounded-full mb-3" style={{ background: accents[i] }} />
-                  <p className="font-display font-bold mb-1" style={{ color: COLORS.dark2 }}>{p.word}</p>
-                  <p className="text-xs font-display" style={{ color: COLORS.muted }}>{p.desc}</p>
+            <div style={{ borderTop: `1px solid ${COLORS.borderLight}` }} className="pt-5 space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-widest font-display" style={{ color: COLORS.muted }}>Examples</p>
+              {[
+                { line1: "You don't need another course.", line2: "You need infrastructure." },
+                { line1: "The old way is over.", line2: "Build for the AI era." },
+                { line1: "Conscious leaders don't hustle.", line2: "They build systems." },
+              ].map((ex, i) => (
+                <div key={i} style={{ borderTop: i > 0 ? `1px solid ${COLORS.borderLight}` : "none", paddingTop: i > 0 ? 16 : 0 }}>
+                  <p className="text-lg md:text-xl font-display font-bold" style={{ color: COLORS.dark2 }}>
+                    &quot;{ex.line1}{" "}
+                    <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>{ex.line2}</span>&quot;
+                  </p>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
