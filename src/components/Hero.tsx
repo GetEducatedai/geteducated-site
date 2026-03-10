@@ -11,12 +11,12 @@ const containerVariants = {
 
 const leftVariants = {
   hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
 };
 
 const rightVariants = {
   hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7 } },
 };
 
 const avatars = [
