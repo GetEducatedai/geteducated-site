@@ -2,131 +2,193 @@
 
 import { motion } from "framer-motion";
 
-const cards = [
-  {
-    num: "01",
-    title: "Academy",
-    desc: "Structured courses that teach you real AI skills — from automation to client acquisition. No fluff, just results.",
-    glow: "var(--glow-teal)",
-    span: "",
-  },
-  {
-    num: "02",
-    title: "Community",
-    desc: "24/7 access to a global network of AI creators, builders, and entrepreneurs who share wins, strategies, and support.",
-    glow: "var(--glow-coral)",
-    span: "",
-  },
-  {
-    num: "03",
-    title: "Templates",
-    desc: "Done-for-you workflows, proposals, and automation blueprints you can deploy in minutes — not weeks.",
-    glow: "var(--glow-violet)",
-    span: "",
-  },
-  {
-    num: "04",
-    title: "Collaborations",
-    desc: "Get matched with other members for joint ventures, client projects, and creative partnerships.",
-    glow: "var(--glow-indigo)",
-    span: "",
-  },
-  {
-    num: "05",
-    title: "Live Events",
-    desc: "Weekly workshops, AMAs, and masterminds with top AI builders. Plus exclusive in-person retreats.",
-    glow: "var(--glow-amber)",
-    span: "",
-  },
-];
-
-function BentoCard({
-  num,
-  title,
-  desc,
-  glow,
-  index,
-}: {
-  num: string;
-  title: string;
-  desc: string;
-  glow: string;
-  index: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
-      className="group relative bg-white rounded-2xl p-8 transition-all duration-300 overflow-hidden"
-      style={{ border: "1px solid var(--light-border)" }}
-    >
-      {/* Hover glow */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-        style={{ background: `radial-gradient(ellipse at center, ${glow}, transparent 70%)` }}
-      />
-      <div className="relative z-10">
-        <span className="text-[#DC2626] text-sm font-bold font-display">
-          {num}
-        </span>
-        <h3 className="text-[#0A0A0A] text-xl font-extrabold font-display mt-2 mb-3">
-          {title}
-        </h3>
-        <p className="text-[#6B6B6B] text-sm leading-relaxed font-display">
-          {desc}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.1 },
+};
 
 export default function BentoGrid() {
-
   return (
-    <section className="relative py-24 px-6 noise-light" style={{ background: "#EBEBEB" }}>
+    <section id="ecosystem" className="caustic-bg py-24 px-6 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          {...fadeUp}
+          transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#DC2626]" />
-            What You Get
-          </p>
-          <h2 className="text-[#0A0A0A] font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
-            Everything you need to
-            <br />
-            build and scale.
+          <span className="inline-flex items-center gap-2 text-light-muted text-sm font-medium mb-4">
+            <span className="w-1.5 h-1.5 bg-dark-bg rounded-full" />
+            Ecosystem
+          </span>
+          <h2 className="text-[#0A0A0A] text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+            What&apos;s inside GetEducated.ai
           </h2>
         </motion.div>
 
-        {/* Bento grid */}
-        <div className="grid md:grid-cols-3 gap-[1px] bg-[#D4D4D4] rounded-2xl overflow-hidden">
-          {/* Top row — 3 cards */}
-          {cards.slice(0, 3).map((card, i) => (
-            <BentoCard key={card.num} {...card} index={i} />
-          ))}
-          {/* Bottom row — 2 cards + 1 dark statement */}
-          {cards.slice(3).map((card, i) => (
-            <BentoCard key={card.num} {...card} index={i + 3} />
-          ))}
-          {/* Statement card */}
+        {/* Asymmetric Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Cell 1 — COMMUNITY (tall) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            className="bg-[#0A0A0A] rounded-2xl p-8 flex flex-col justify-center"
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="bg-white rounded-2xl p-8 md:row-span-2 flex flex-col justify-between card-lift"
           >
-            <h3 className="text-white text-2xl sm:text-3xl font-black font-display leading-tight">
-              Find your people.
-              <br />
-              <span className="text-[#DC2626]">Build your future.</span>
-            </h3>
+            <div>
+              <h3 className="text-[#0A0A0A] text-2xl font-black mb-4">Community</h3>
+              <p className="text-light-muted text-sm leading-relaxed">
+                24/7 access to a global network of AI creators. Connection replaces
+                isolation. Collaboration replaces competition.
+              </p>
+            </div>
+            <div className="mt-8 flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {["EF", "AK", "MS", "JT"].map((i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-light-bg flex items-center justify-center text-[10px] font-bold text-light-muted border-2 border-white"
+                  >
+                    {i}
+                  </div>
+                ))}
+              </div>
+              <span className="text-light-muted text-xs">2,000+ members</span>
+            </div>
+          </motion.div>
+
+          {/* Cell 2 — ACADEMY (wide) */}
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.16 }}
+            className="bg-white rounded-2xl p-8 md:col-span-2 card-lift"
+          >
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex-1">
+                <h3 className="text-[#0A0A0A] text-2xl font-black mb-3">Academy</h3>
+                <p className="text-light-muted text-sm leading-relaxed mb-4">
+                  World-class courses built for the AI era. From automation to
+                  client acquisition — learn what actually makes money.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["\ud83e\udde0 Mindset", "\u26a1 AI", "\ud83d\udcbc Business"].map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs bg-light-bg text-light-muted px-3 py-1 rounded-full font-medium"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="w-full sm:w-40 h-48 rounded-xl bg-dark-bg2 flex items-end p-4 flex-shrink-0"
+                style={{
+                  background: "linear-gradient(135deg, #0D0D1A 0%, #1a1a2e 100%)",
+                }}
+              >
+                <div>
+                  <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Featured</p>
+                  <p className="text-white font-bold text-sm">The AI Academy</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Cell 3 — TEMPLATES (dark) */}
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.24 }}
+            className="rounded-2xl p-8 card-lift text-white"
+            style={{
+              background: "linear-gradient(135deg, #1A1A1A 0%, #2a2a2a 100%)",
+            }}
+          >
+            <h3 className="text-white text-xl font-black mb-3">Templates</h3>
+            <p className="text-white/60 text-sm leading-relaxed">
+              Done-for-you workflows, proposals, and automation blueprints.
+              Deploy in minutes — not weeks.
+            </p>
+          </motion.div>
+
+          {/* Cell 4 — COLLABORATIONS */}
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.32 }}
+            className="bg-white rounded-2xl p-8 card-lift"
+          >
+            <h3 className="text-[#0A0A0A] text-xl font-black mb-4">Collaborations</h3>
+            <p className="text-light-muted text-sm leading-relaxed mb-5">
+              Get matched with members for joint ventures and creative partnerships.
+            </p>
+            {/* Chat mockup */}
+            <div className="space-y-3">
+              <div className="flex items-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-violet/20 flex items-center justify-center text-[8px] font-bold text-violet flex-shrink-0">A</div>
+                <div className="bg-light-bg rounded-xl rounded-tl-none px-3 py-2 text-xs text-light-text">
+                  Hey, I love your work!
+                </div>
+              </div>
+              <div className="flex items-start gap-2 flex-row-reverse">
+                <div className="w-6 h-6 rounded-full bg-red/20 flex items-center justify-center text-[8px] font-bold text-red flex-shrink-0">Y</div>
+                <div className="bg-dark-bg2 rounded-xl rounded-tr-none px-3 py-2 text-xs text-white">
+                  Let&apos;s collaborate!
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Cell 5 — EVENTS (wide) */}
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="md:col-span-2 rounded-2xl p-8 card-lift text-white relative overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, #065f46 0%, #0d9488 50%, #14b8a6 100%)",
+            }}
+          >
+            <h3 className="text-white text-2xl font-black mb-2">Live Events & Retreats</h3>
+            <p className="text-white/80 text-sm mb-4">
+              Dubai. Tulum. Bali. Your city next.
+            </p>
+            <p className="text-white/60 text-sm leading-relaxed max-w-md">
+              Weekly workshops, AMAs, and masterminds with top AI builders.
+              Plus exclusive in-person retreats around the world.
+            </p>
+          </motion.div>
+
+          {/* Cell 6 — CTA Card (dark) */}
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.48 }}
+            className="rounded-2xl p-8 dot-grid card-lift flex flex-col justify-between"
+            style={{ background: "#0D0D1A" }}
+          >
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex -space-x-1.5">
+                  {["E", "M", "K"].map((l) => (
+                    <div
+                      key={l}
+                      className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[9px] font-bold text-white border border-dark-bg2"
+                    >
+                      {l}
+                    </div>
+                  ))}
+                </div>
+                <span className="text-white/40 text-xs">+52 this week</span>
+              </div>
+              <h3 className="text-white text-xl font-black leading-tight">
+                Find Your People.
+                <br />
+                <span className="text-red">Build Your Future.</span>
+              </h3>
+            </div>
+            <a
+              href="https://go.geteducated.ai"
+              className="mt-6 inline-flex items-center gap-2 text-white text-sm font-semibold hover:gap-3 transition-all"
+            >
+              Join now <span>&rarr;</span>
+            </a>
           </motion.div>
         </div>
       </div>

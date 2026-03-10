@@ -37,9 +37,8 @@ const config: Config = {
       animation: {
         marquee: "marquee 40s linear infinite",
         "hero-float": "hero-float 7s ease-in-out infinite",
-        "blob-float": "blob-float 8s ease-in-out infinite",
-        "blob-float-delay": "blob-float 8s ease-in-out 4s infinite",
-        "blob-pulse": "blob-pulse 6s ease-in-out infinite",
+        "marquee-left": "marquee-left 35s linear infinite",
+        "marquee-right": "marquee-right 28s linear infinite",
       },
       keyframes: {
         marquee: {
@@ -50,14 +49,13 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        "blob-float": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%": { transform: "translate(30px, -20px) scale(1.05)" },
-          "66%": { transform: "translate(-20px, 20px) scale(0.95)" },
+        "marquee-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
-        "blob-pulse": {
-          "0%, 100%": { opacity: "0.6" },
-          "50%": { opacity: "0.8" },
+        "marquee-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
     },

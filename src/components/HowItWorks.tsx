@@ -1,114 +1,124 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const steps = [
   {
     num: "01",
-    title: "Learn",
-    subtitle: "Master the AI tools shaping the world",
-    description:
-      "Dive deep into the tools replacing entire industries. Midjourney, Claude, Runway, ElevenLabs — not theory, but practical skills you can monetize this week.",
-    tags: ["OpenAI", "Claude", "Midjourney", "Runway"],
+    title: "Learn what matters",
+    body: "Skip the noise. Master the AI tools and business strategies that actually generate revenue. Our curated curriculum cuts through the hype.",
   },
   {
     num: "02",
-    title: "Build",
-    subtitle: "Build in public with people who get it",
-    description:
-      "Launch your AI-powered service, product, or creative business. Use our templates, workflows, and community accountability to ship fast.",
-    tags: ["Templates", "Workflows", "Community", "Accountability"],
+    title: "Build real systems",
+    body: "Use our templates, workflows, and community accountability to ship real projects. Build an AI-powered business — not just a portfolio.",
   },
   {
     num: "03",
-    title: "Lead",
-    subtitle: "Lead with confidence in the AI era",
-    description:
-      "Become the expert in your space. Teach others. Build your brand. Create the life and income you actually want.",
-    tags: ["Coach", "Consultant", "Creator", "Founder"],
+    title: "Lead with confidence",
+    body: "Become the expert in your space. Teach others. Build your brand. Create the life and income you actually want — on your terms.",
   },
 ];
 
+const logos = [
+  "ChatGPT", "Claude", "Midjourney", "Make", "n8n",
+  "Runway", "ElevenLabs", "Notion", "Zapier",
+];
+
 export default function HowItWorks() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 0.8", "end 0.6"],
+  });
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <section className="relative py-24 px-6 bg-[#08080E] dot-grid overflow-hidden">
+    <section className="caustic-bg py-24 px-6 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16"
-        >
-          <p className="text-[#DC2626] text-sm font-semibold font-display mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#DC2626]" />
-            How It Works
-          </p>
-          <h2 className="text-white font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
-            Learn. Build.{" "}
-            <span className="text-[#DC2626]">Lead.</span>
-          </h2>
-          <p className="text-white/50 text-base mt-4 max-w-lg font-display">
-            Three steps. No BS. We stripped out everything that doesn&apos;t
-            lead to results.
-          </p>
-        </motion.div>
-
-        {/* Step cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* LEFT — Header */}
+          <div className="lg:sticky lg:top-32">
             <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="group relative bg-white rounded-2xl p-8 transition-all duration-300"
-              style={{ border: "1px solid var(--light-border, #D4D4D4)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Step number */}
-              <span className="text-[#DC2626] text-sm font-bold font-display">
-                {step.num}
+              <span className="inline-flex items-center gap-2 text-light-muted text-sm font-medium mb-4">
+                <span className="w-1.5 h-1.5 bg-dark-bg rounded-full" />
+                How It Works
               </span>
-
-              {/* Title */}
-              <h3 className="text-[#0A0A0A] text-2xl font-black font-display mt-2 mb-1">
-                {step.title}
-              </h3>
-
-              {/* Subtitle */}
-              <p className="text-[#DC2626] text-xs font-semibold font-display mb-3">
-                {step.subtitle}
+              <h2 className="text-[#0A0A0A] text-3xl sm:text-4xl lg:text-[52px] font-black tracking-tight leading-tight mb-4">
+                How the ecosystem works
+              </h2>
+              <p className="text-light-muted text-base mb-8 max-w-md">
+                From joining to building to leading — your path inside.
               </p>
-
-              {/* Description */}
-              <p className="text-[#6B6B6B] text-sm leading-relaxed font-display mb-5">
-                {step.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {step.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-[#DC2626]/10 text-[#DC2626] px-3 py-1 rounded-full font-display font-semibold"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
+              <a
+                href="https://go.geteducated.ai"
+                className="inline-block bg-dark-bg2 text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-dark-bg transition btn-press"
+              >
+                Get Started
+              </a>
             </motion.div>
-          ))}
+          </div>
+
+          {/* RIGHT — Timeline */}
+          <div ref={timelineRef} className="relative pl-8">
+            {/* Animated red line */}
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-light-border">
+              <motion.div
+                className="absolute top-0 left-0 w-full bg-red origin-top"
+                style={{ scaleY: lineScale, height: "100%" }}
+              />
+            </div>
+
+            <div className="space-y-16">
+              {steps.map((step, i) => (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="relative"
+                >
+                  {/* Red bracket accent */}
+                  <div className="absolute -right-2 -top-2 text-red text-xl font-light opacity-30">
+                    &#x2510;
+                  </div>
+                  <span className="text-light-muted text-xs tracking-wider">{step.num}</span>
+                  <h3 className="text-[#0A0A0A] text-2xl font-black mt-1 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-light-muted text-sm leading-relaxed max-w-md">
+                    {step.body}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Arrow connector row */}
-        <div className="hidden md:flex justify-center items-center gap-4 mt-8">
-          <span className="text-white/30 font-display text-sm tracking-wide">Learn</span>
-          <span className="text-[#DC2626]">&rarr;</span>
-          <span className="text-white/30 font-display text-sm tracking-wide">Build</span>
-          <span className="text-[#DC2626]">&rarr;</span>
-          <span className="text-white/30 font-display text-sm tracking-wide">Lead</span>
+        {/* Logo Marquee */}
+        <div className="mt-24 pt-12 border-t border-light-border">
+          <p className="text-light-muted text-xs uppercase tracking-widest text-center mb-8">
+            Master world-class tech
+          </p>
+          <div className="overflow-hidden">
+            <div className="animate-marquee-logos flex items-center gap-8">
+              {[...logos, ...logos].map((logo, i) => (
+                <span
+                  key={`${logo}-${i}`}
+                  className="inline-flex items-center bg-white rounded-full px-5 py-2.5 text-sm font-semibold text-light-text shadow-sm whitespace-nowrap flex-shrink-0"
+                >
+                  {logo}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
