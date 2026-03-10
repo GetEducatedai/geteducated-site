@@ -161,19 +161,21 @@ export default function BrandKit() {
       >
         {/* Orbs */}
         <div
-          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none"
+          className="absolute pointer-events-none"
           style={{
-            top: "-200px", left: "-200px",
-            background: `radial-gradient(circle, rgba(95,37,159,0.35) 0%, transparent 70%)`,
-            filter: "blur(60px)",
+            width: 900, height: 900,
+            top: "-350px", left: "-350px",
+            background: `radial-gradient(circle, rgba(95,37,159,0.5) 0%, transparent 70%)`,
+            filter: "blur(120px)",
           }}
         />
         <div
-          className="absolute w-[400px] h-[400px] rounded-full pointer-events-none"
+          className="absolute pointer-events-none"
           style={{
-            bottom: "-100px", right: "-100px",
-            background: `radial-gradient(circle, rgba(255,191,63,0.25) 0%, transparent 70%)`,
-            filter: "blur(50px)",
+            width: 700, height: 700,
+            bottom: "-250px", right: "-250px",
+            background: `radial-gradient(circle, rgba(255,191,63,0.4) 0%, transparent 70%)`,
+            filter: "blur(100px)",
           }}
         />
 
@@ -185,7 +187,7 @@ export default function BrandKit() {
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-display text-white tracking-tight leading-none">
               Brand{" "}
-              <span className="font-serif italic font-normal gradient-text">
+              <span className="font-serif italic font-bold gradient-text">
                 Guidelines
               </span>
             </h1>
@@ -217,7 +219,7 @@ export default function BrandKit() {
           <Eyebrow>01 — Color</Eyebrow>
           <SectionTitle light>
             Color{" "}
-            <span className="font-serif italic font-normal" style={{ color: COLORS.purpleRush }}>
+            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>
               Palette
             </span>
           </SectionTitle>
@@ -300,11 +302,12 @@ export default function BrandKit() {
       >
         {/* Orb */}
         <div
-          className="absolute w-[500px] h-[500px] rounded-full pointer-events-none"
+          className="absolute pointer-events-none"
           style={{
-            top: "10%", right: "-150px",
-            background: `radial-gradient(circle, rgba(70,193,164,0.2) 0%, transparent 70%)`,
-            filter: "blur(60px)",
+            width: 800, height: 800,
+            top: "0%", right: "-300px",
+            background: `radial-gradient(circle, rgba(70,193,164,0.35) 0%, transparent 70%)`,
+            filter: "blur(120px)",
           }}
         />
 
@@ -312,7 +315,7 @@ export default function BrandKit() {
           <Eyebrow>02 — Typography</Eyebrow>
           <SectionTitle>
             Type{" "}
-            <span className="font-serif italic font-normal gradient-text">System</span>
+            <span className="font-serif italic font-bold gradient-text">System</span>
           </SectionTitle>
 
           {/* Font pair cards */}
@@ -468,7 +471,7 @@ export default function BrandKit() {
           <Eyebrow>03 — Gradients</Eyebrow>
           <SectionTitle light>
             Gradients &{" "}
-            <span className="font-serif italic font-normal" style={{ color: COLORS.purpleRush }}>Motion</span>
+            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>Motion</span>
           </SectionTitle>
 
           {/* Gradient strips */}
@@ -509,8 +512,8 @@ export default function BrandKit() {
                 style={{ background: o.bg }}
               >
                 <div
-                  className="absolute top-[-30px] right-[-30px] w-32 h-32 rounded-full"
-                  style={{ background: `radial-gradient(circle, ${o.color} 0%, transparent 70%)`, filter: "blur(20px)" }}
+                  className="absolute pointer-events-none"
+                  style={{ background: `radial-gradient(circle, ${o.color} 0%, transparent 70%)`, filter: "blur(50px)" }}
                 />
                 <p className="relative z-10 text-xs font-display font-semibold" style={{ color: COLORS.white }}>{o.label}</p>
               </div>
@@ -551,7 +554,7 @@ export default function BrandKit() {
           <Eyebrow>04 — Components</Eyebrow>
           <SectionTitle>
             UI{" "}
-            <span className="font-serif italic font-normal gradient-text">Components</span>
+            <span className="font-serif italic font-bold gradient-text">Components</span>
           </SectionTitle>
 
           {/* Buttons */}
@@ -677,7 +680,7 @@ export default function BrandKit() {
           <Eyebrow>05 — Logo</Eyebrow>
           <SectionTitle light>
             Logo{" "}
-            <span className="font-serif italic font-normal" style={{ color: COLORS.purpleRush }}>System</span>
+            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>System</span>
           </SectionTitle>
 
           {/* Logo usage table */}
@@ -731,9 +734,10 @@ export default function BrandKit() {
         <div
           className="absolute w-[500px] h-[500px] rounded-full pointer-events-none"
           style={{
-            bottom: "-150px", left: "-150px",
-            background: `radial-gradient(circle, rgba(158,0,126,0.25) 0%, transparent 70%)`,
-            filter: "blur(60px)",
+            width: 800, height: 800,
+            bottom: "-300px", left: "-300px",
+            background: `radial-gradient(circle, rgba(158,0,126,0.4) 0%, transparent 70%)`,
+            filter: "blur(120px)",
           }}
         />
 
@@ -741,7 +745,7 @@ export default function BrandKit() {
           <Eyebrow>06 — Social Media</Eyebrow>
           <SectionTitle>
             Social{" "}
-            <span className="font-serif italic font-normal gradient-text">Media</span>
+            <span className="font-serif italic font-bold gradient-text">Media</span>
           </SectionTitle>
 
           {/* Platform specs */}
@@ -779,14 +783,14 @@ export default function BrandKit() {
               style={{ background: COLORS.black }}
             >
               <div
-                className="absolute top-[-20px] right-[-20px] w-40 h-40 rounded-full"
-                style={{ background: `radial-gradient(circle, rgba(255,191,63,0.5) 0%, transparent 70%)`, filter: "blur(30px)" }}
+                className="absolute pointer-events-none"
+                style={{ background: `radial-gradient(circle, rgba(255,191,63,0.5) 0%, transparent 70%)`, filter: "blur(70px)" }}
               />
               <div className="relative z-10">
                 <p className="text-lg font-bold font-display text-white leading-snug">
                   Stop consuming.
                   <br />
-                  <span className="font-serif italic font-normal" style={{ color: COLORS.brightSun }}>
+                  <span className="font-serif italic font-bold" style={{ color: COLORS.brightSun }}>
                     Start building.
                   </span>
                 </p>
@@ -839,7 +843,7 @@ export default function BrandKit() {
                 AI isn&apos;t the future.
                 <br /><br />
                 It&apos;s the{" "}
-                <span className="font-serif italic font-normal underline decoration-white/40 underline-offset-4">
+                <span className="font-serif italic font-bold underline decoration-white/40 underline-offset-4">
                   present.
                 </span>
               </p>
@@ -863,7 +867,7 @@ export default function BrandKit() {
           <Eyebrow>07 — Voice & Copy</Eyebrow>
           <SectionTitle light>
             Voice &{" "}
-            <span className="font-serif italic font-normal" style={{ color: COLORS.purpleRush }}>Copy</span>
+            <span className="font-serif italic font-bold" style={{ color: COLORS.purpleRush }}>Copy</span>
           </SectionTitle>
 
           {/* Do / Don't */}
